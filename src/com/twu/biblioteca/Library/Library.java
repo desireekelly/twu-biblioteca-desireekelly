@@ -46,6 +46,10 @@ public class Library {
         }
     }
 
+    public Set<Book> getBorrowedBooks(){
+        return borrowedBooks;
+    }
+
     public List<Book> getBookList() {
         return Collections.unmodifiableList(books);
     }

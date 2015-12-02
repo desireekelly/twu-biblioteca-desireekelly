@@ -48,4 +48,18 @@ public class LibraryTest {
         library.checkoutBook(library.getBookList().get(0));
         library.checkoutBook(library.getBookList().get(0));
     }
+
+    @Test
+    public void testGetBookList() throws Exception {
+        assertEquals(library.getBookList().get(0).toString(), "Java 101, Joe Bloggs, 1990");
+        assertEquals(library.getBookList().get(1).toString(), "PHP 101, Mary Jane, 2005");
+        assertEquals(library.getBookList().get(2).toString(), "C# 101, John Smith, 2010");
+        assertEquals(library.getBookList().get(3).toString(), "C++ 101, Joyce Merry, 2001");
+    }
+
+    @Test
+    public void testGetBorrowedBooks() throws Exception {
+        library.checkoutBook(library.getBookList().get(0));
+        assertTrue(library.getBorrowedBooks().toString().contains("Java 101, Joe Bloggs, 1990"));
+    }
 }
