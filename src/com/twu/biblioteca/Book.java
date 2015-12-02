@@ -5,11 +5,39 @@ package com.twu.biblioteca;
  */
 public class Book {
 
+    private String title;
+    private String author;
+    private int yearPublished;
+    private boolean status;
+
+    public Book(String title, String author, int yearPublished, boolean status) {
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearPublished;
+        this.status = status;
+    }
+
+    public Book() {
+
+    }
+
     public String getTitle() {
-        return null;
+        return title;
     }
 
     public String getAuthor() {
-        return null;
+        return author;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public boolean getCheckoutStatus() {
+        return status;
+    }
+
+    public String toString() {
+        return this.title + ", " + this.author + ", " + this.yearPublished + ", " + this.status;
     }
 }
