@@ -5,18 +5,24 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by desiree on 2/12/2015.
+ * Created by Desiree Kelly on 2/12/2015.
  */
 public class BookTest {
 
-    @Before
-    public void setUp() throws Exception {
+    private Book book;
 
+    @Before
+    public void setUp(){
+    book = new Book();
     }
 
     @Test
     public void testGetTitle() {
-        Book book = new Book();
-        assertEquals(book.getTitle(), "Book Title");
+        assertEquals(book.getTitle(), "Title");
+    }
+
+    @Test
+    public void testGetAuthor(){
+        assertEquals(book.getAuthor(), "Author");
     }
 }
