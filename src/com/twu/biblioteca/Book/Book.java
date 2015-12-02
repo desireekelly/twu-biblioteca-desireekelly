@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Book;
 
 /**
  * Created by Desiree Kelly on 2/12/2015.
