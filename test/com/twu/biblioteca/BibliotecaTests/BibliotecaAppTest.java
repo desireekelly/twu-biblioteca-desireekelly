@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by desiree on 2/12/2015.
+ * Created by Desiree Kelly on 2/12/2015.
  */
 public class BibliotecaAppTest {
 
