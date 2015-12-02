@@ -1,9 +1,9 @@
 package com.twu.biblioteca.BookTests;
 
 import com.twu.biblioteca.Book.Book;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * Created by Desiree Kelly on 2/12/2015.
@@ -14,7 +14,7 @@ public class BookTest {
 
     @Before
     public void setUp(){
-    book = new Book("Java 101", "Joe Bloggs", 1990, true);
+    book = new Book("Java 101", "Joe Bloggs", 1990);
     }
 
     @Test
@@ -33,13 +33,8 @@ public class BookTest {
     }
 
     @Test
-    public void testGetCheckoutStatus(){
-        assertEquals(book.getCheckoutStatus(), true);
-    }
-
-    @Test
     public void testToString(){
-        assertEquals(book.toString(), "Java 101, Joe Bloggs, 1990, true");
+        assertEquals(book.toString(), "Java 101, Joe Bloggs, 1990");
     }
 
 }

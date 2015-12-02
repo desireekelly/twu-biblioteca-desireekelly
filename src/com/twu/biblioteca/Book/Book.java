@@ -8,17 +8,11 @@ public class Book {
     private String title;
     private String author;
     private int yearPublished;
-    private boolean status;
 
-    public Book(String title, String author, int yearPublished, boolean status) {
+    public Book(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
-        this.status = status;
-    }
-
-    public Book() {
-
     }
 
     public String getTitle() {
@@ -33,11 +27,8 @@ public class Book {
         return yearPublished;
     }
 
-    public boolean getCheckoutStatus() {
-        return status;
-    }
 
     public String toString() {
-        return this.title + ", " + this.author + ", " + this.yearPublished + ", " + this.status;
+        return this.title + ", " + this.author + ", " + this.yearPublished;
     }
 }
