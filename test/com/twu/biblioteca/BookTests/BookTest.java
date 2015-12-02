@@ -36,5 +36,4 @@ public class BookTest {
     public void testToString(){
         assertEquals(book.toString(), "Java 101, Joe Bloggs, 1990");
     }
-
 }

@@ -21,31 +21,13 @@ public class BibliotecaApp {
             System.out.println("\n" + e.getMessage());
         }
 
-        try {
-            library.checkoutBook(library.getBookList().get(0));
-        }catch(BookNotBorrowable e){
-            System.out.println("\n" + e.getMessage());
-        }
-
         System.out.println("\nBorrowed Books:");
         library.displayBorrowedBooks();
-        System.out.println("\nAvailable Books:");
-        library.displayAvailableBooks();
-
-        try {
-            library.returnBook(library.getBookList().get(1));
-        }catch(BookNotReturnable e){
-            System.out.println("\n" + e.getMessage());
-        }
 
         try {
             library.returnBook(library.getBookList().get(0));
         }catch(BookNotReturnable e){
             System.out.println("\n" + e.getMessage());
         }
-
-        System.out.println("\nAvailable Books:");
-        library.displayAvailableBooks();
     }
 }
-

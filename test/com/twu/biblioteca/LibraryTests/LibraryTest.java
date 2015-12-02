@@ -21,12 +21,10 @@ public class LibraryTest {
 
     @Test
     public void testCreateBookList() throws Exception {
-
         assertEquals("Java 101", library.getBookList().get(0).getTitle());
         assertEquals("PHP 101", library.getBookList().get(1).getTitle());
         assertEquals("C# 101", library.getBookList().get(2).getTitle());
         assertEquals("C++ 101", library.getBookList().get(3).getTitle());
-
     }
 
     @Test
@@ -38,7 +36,6 @@ public class LibraryTest {
     public void testReturnBook() throws BookNotReturnable, BookNotBorrowable {
         library.checkoutBook(library.getBookList().get(0));
         library.returnBook(library.getBookList().get(0));
-
     }
 
     @Test(expected=BookNotReturnable.class)
