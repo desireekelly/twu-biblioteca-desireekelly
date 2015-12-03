@@ -62,4 +62,11 @@ public class LibraryTest {
         library.checkoutBook(library.getBookList().get(0));
         assertTrue(library.getBorrowedBooks().toString().contains("Java 101, Joe Bloggs, 1990"));
     }
+
+    @Test
+    public void testGetAvailableBooks() throws Exception {
+        library.checkoutBook(library.getBookList().get(0));
+        library.checkoutBook(library.getBookList().get(1));
+        assertEquals(library.getAvailableBooks(),"C# 101, John Smith, 2010\nC++ 101, Joyce Merry, 2001\n");
+    }
 }

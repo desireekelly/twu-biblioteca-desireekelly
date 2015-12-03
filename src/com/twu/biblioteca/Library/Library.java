@@ -30,20 +30,15 @@ public class Library {
         books.add(b4);
     }
 
-    public void displayAvailableBooks() {
+    public String getAvailableBooks(){
+        String availableBooks = "";
+
         for (Book b : books) {
             if (!borrowedBooks.contains(b)) {
-                System.out.println(b);
+                availableBooks += b + "\n";
             }
         }
-    }
-
-    public void displayBorrowedBooks(){
-        for(Book b: borrowedBooks){
-            if (borrowedBooks.contains(b)) {
-                System.out.println(b);
-            }
-        }
+        return availableBooks;
     }
 
     public Set<Book> getBorrowedBooks(){
