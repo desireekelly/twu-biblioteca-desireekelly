@@ -14,22 +14,3 @@ public class BibliotecaApp {
         launch.mainMenu();
     }
 }
-  /*
-        System.out.println("Available Books:");
-        library.displayAvailableBooks();
-
-        try {
-            library.checkoutBook(library.getBookList().get(0));
-        }catch(BookNotBorrowable e){
-            System.out.println("\n" + e.getMessage());
-        }
-
-        System.out.println("\nBorrowed Books:");
-        library.displayBorrowedBooks();
-
-        try {
-            library.returnBook(library.getBookList().get(0));
-        }catch(BookNotReturnable e){
-            System.out.println("\n" + e.getMessage());
-        }
-        */
