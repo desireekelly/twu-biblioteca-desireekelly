@@ -9,7 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Desiree Kelly on 2/12/2015.
+ * Tests for the Library class.
+ *
+ * @see Library
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class LibraryTest {
 

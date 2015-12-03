@@ -6,13 +6,19 @@ import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import java.util.*;
 
 /**
- * Created by Desiree Kelly on 2/12/2015.
+ * The Library is responsible for holding the available and borrowed books.
+ *
+ * @version 1.0
+ * @author Desiree Kelly
  */
 public class Library {
 
     private List<Book> books = new ArrayList<Book>();
     private Set<Book> borrowedBooks = new HashSet<Book>();
 
+    /**
+     * Construct a library with a fixed set of books.
+     */
     public Library() {
         this.createBookList();
     }
@@ -24,6 +30,11 @@ public class Library {
         books.add(new Book("C++ 101", "Joyce Merry", 2001));
     }
 
+    /**
+     * Get the list of available books.
+     *
+     * @return Returns a list of books that are available to be borrowed.
+     */
     public List<Book> getAvailableBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
         for(Book b : books) {
@@ -34,6 +45,11 @@ public class Library {
         return results;
     }
 
+    /**
+     * Get the list of borrowed books.
+     *
+     * @return Returns a list of books that are out for loan.
+     */
     public List<Book> getBorrowedBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
         for(Book b : books) {
@@ -44,16 +60,33 @@ public class Library {
         return results;
     }
 
+    /**
+     * Gets the list of all books this library has.
+     *
+     * @return Returns the book catalog.
+     */
     public List<Book> getBookList() {
         return Collections.unmodifiableList(books);
     }
 
+    /**
+     * Check out a book.
+     *
+     * @param book The book to check out.
+     * @throws BookNotBorrowable Thrown if book is not availble to check out.
+     */
     public void checkoutBook(Book book) throws BookNotBorrowable {
         if (borrowedBooks.contains(book))
             throw new BookNotBorrowable("Book is not available");
         borrowedBooks.add(book);
     }
 
+    /**
+     * Return a checked out book.
+     *
+     * @param book The book to return.
+     * @throws BookNotReturnable Thrown if book is not currently checked out.
+     */
     public void returnBook(Book book) throws BookNotReturnable {
         if (!borrowedBooks.contains(book))
             throw new BookNotReturnable("Book is already returned");
