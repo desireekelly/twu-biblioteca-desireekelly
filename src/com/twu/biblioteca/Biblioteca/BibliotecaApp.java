@@ -19,7 +19,6 @@ public class BibliotecaApp {
     }
 
     public void launchApp() {
-
         startMenu();
         /*
         System.out.println("Available Books:");
@@ -43,43 +42,41 @@ public class BibliotecaApp {
     }
 
     public void startMenu() {
+        System.out.println("Welcome to the Bangalore Public Library!\n");
+        System.out.println("We know you'll find a book here that you love!\n");
 
-        System.out.println("Welcome to the Bangalore Public Library");
-
-        while (true) {
+        while(true) {
             try {
-            System.out.print("\nEnter one of the following options:\n" +
+                System.out.print("Enter one of the following options:\n" +
                     "1 Display the list of available books to borrow\n" +
                     "2 Borrow a book\n" +
                     "3 Return a book\n" +
                     "4 Exit\n" +
-                    "Enter option:");
-
+                    "Enter your option:");
                 option = input.nextInt();
             }
             catch(InputMismatchException e){
-
                 input.nextLine();
             }
-            switch (option) {
+            switch(option) {
                 case 1:
                     System.out.print("\n");
+                    System.out.println("Available Books: \n");
                     System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
                     System.out.println(displayFormattedStrings(library.getAvailableBooks()));
-
                     break;
                 case 2:
                     System.out.print("\n");
-                    System.out.print("Borrow book process\n");
+                    System.out.println("Borrow book process\n");
                     break;
                 case 3:
                     System.out.print("\n");
-                    System.out.print("Return book process\n");
+                    System.out.println("Return book process\n");
                     break;
                 case 4:
+                    System.out.println("\nThank you for using the Bangalore Public Library!");
                     return;
                 default:
-
                     System.out.println("\nIncorrect option, please try again.");
             }
         }
@@ -97,7 +94,6 @@ public class BibliotecaApp {
     }
 
     public void borrowMenu(){
-
 
     }
 
