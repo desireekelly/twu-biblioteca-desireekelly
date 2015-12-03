@@ -35,23 +35,23 @@ public class LibraryTest {
     }
 
     @Test
-    public void testCheckoutBook() throws BookNotBorrowable {
+    public void testCheckoutBook() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
     }
 
     @Test
-    public void testReturnBook() throws BookNotReturnable, BookNotBorrowable {
+    public void testReturnBook() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
         library.returnBook(library.getBookList().get(0));
     }
 
     @Test(expected=BookNotReturnable.class)
-    public void testExceptionThrownWhenBookAlreadyReturned() throws BookNotReturnable{
+    public void testExceptionThrownWhenBookAlreadyReturned() throws Exception{
         library.returnBook(library.getBookList().get(0));
     }
 
     @Test(expected=BookNotBorrowable.class)
-    public void testExceptionThrownWhenBookBorrowedTwice() throws BookNotBorrowable{
+    public void testExceptionThrownWhenBookBorrowedTwice() throws Exception{
         library.checkoutBook(library.getBookList().get(0));
         library.checkoutBook(library.getBookList().get(0));
     }

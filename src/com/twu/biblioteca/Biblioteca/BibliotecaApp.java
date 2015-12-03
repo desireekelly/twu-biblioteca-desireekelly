@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Biblioteca;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Library.Library;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -64,23 +65,15 @@ public class BibliotecaApp {
         }
     }
 
-    public String displayFormattedStrings(String availableBooks){
-        String [] books = availableBooks.split("\\r?\\n");
+    public String displayFormattedStrings(List<Book> availableBooks){
         String formattedBooks = "";
+        int index = 0;
 
-        for(String b: books) {
-            String[] token = b.split(", ");
-            formattedBooks += String.format("%-15s %-15s %-15s %-15s\n", token[0], token[1], token[2], token[3]);
+        for(Book b: availableBooks) {
+            index++;
+            formattedBooks += String.format("%-15s %-15s %-15s %-15s\n", index, b.getTitle(), b.getAuthor(), b.getYearPublished());
         }
      return formattedBooks;
-    }
-
-    private String bookListToString(List<Book> books) {
-        StringBuffer buff = new StringBuffer();
-        for (Book b : books) {
-            buff.append(b);
-        }
-        return buff.toString();
     }
 
     public void menuOptions(int option){
@@ -89,7 +82,15 @@ public class BibliotecaApp {
                 System.out.print("\n");
                 System.out.println("Available Books: \n");
                 System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
-                System.out.println(displayFormattedStrings(bookListToString(library.getAvailableBooks())));
+
+                try {
+                    library.checkoutBook(library.getBookList().get(0));
+                }catch(BookNotBorrowable e){
+                    System.out.println("\n" + e.getMessage());
+                }
+
+
+                System.out.println(displayFormattedStrings(library.getAvailableBooks()));
                 break;
             case 2:
                 System.out.print("\n");

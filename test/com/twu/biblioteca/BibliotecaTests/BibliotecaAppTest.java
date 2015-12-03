@@ -1,9 +1,13 @@
 package com.twu.biblioteca.BibliotecaTests;
 
+import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Biblioteca.BibliotecaApp;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -17,13 +21,6 @@ public class BibliotecaAppTest {
     @Before
     public void setUp() throws Exception {
     biblioteca = new BibliotecaApp();
-    }
-
-    @Test
-    public void displayFormattedStrings() throws Exception {
-        String books = "1, Java 101, Joe Bloggs, 1990";
-        assertEquals(biblioteca.displayFormattedStrings(books.toString()),
-                "1               Java 101        Joe Bloggs      1990           \n");
     }
 
     @Test(expected=InputMismatchException.class)
