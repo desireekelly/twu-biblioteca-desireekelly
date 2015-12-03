@@ -51,22 +51,22 @@ public class LibraryTest {
 
     @Test
     public void testGetBookList() throws Exception {
-        assertEquals(library.getBookList().get(0).toString(), "Java 101, Joe Bloggs, 1990");
-        assertEquals(library.getBookList().get(1).toString(), "PHP 101, Mary Jane, 2005");
-        assertEquals(library.getBookList().get(2).toString(), "C# 101, John Smith, 2010");
-        assertEquals(library.getBookList().get(3).toString(), "C++ 101, Joyce Merry, 2001");
+        assertEquals(library.getBookList().get(0).toString(), "1, Java 101, Joe Bloggs, 1990");
+        assertEquals(library.getBookList().get(1).toString(), "2, PHP 101, Mary Jane, 2005");
+        assertEquals(library.getBookList().get(2).toString(), "3, C# 101, John Smith, 2010");
+        assertEquals(library.getBookList().get(3).toString(), "4, C++ 101, Joyce Merry, 2001");
     }
 
     @Test
     public void testGetBorrowedBooks() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
-        assertTrue(library.getBorrowedBooks().toString().contains("Java 101, Joe Bloggs, 1990"));
+        assertTrue(library.getBorrowedBooks().toString().contains("1, Java 101, Joe Bloggs, 1990"));
     }
 
     @Test
     public void testGetAvailableBooks() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
         library.checkoutBook(library.getBookList().get(1));
-        assertEquals(library.getAvailableBooks(),"C# 101, John Smith, 2010\nC++ 101, Joyce Merry, 2001\n");
+        assertEquals(library.getAvailableBooks(),"3, C# 101, John Smith, 2010\n4, C++ 101, Joyce Merry, 2001\n");
     }
 }

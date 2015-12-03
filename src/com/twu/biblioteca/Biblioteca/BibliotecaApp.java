@@ -1,9 +1,6 @@
 package com.twu.biblioteca.Biblioteca;
 
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,14 +10,17 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     private Library library;
+    private Scanner input;
+    private int option;
 
     public BibliotecaApp(){
         library = new Library();
+        input = new Scanner(System.in);
     }
 
     public void launchApp() {
 
-        openMenu();
+        startMenu();
         /*
         System.out.println("Available Books:");
         library.displayAvailableBooks();
@@ -42,15 +42,12 @@ public class BibliotecaApp {
         */
     }
 
-    public void openMenu() {
-
-        Scanner input = new Scanner(System.in);
+    public void startMenu() {
 
         System.out.println("Welcome to the Bangalore Public Library");
 
-        int option;
-
         while (true) {
+            try {
             System.out.print("\nEnter one of the following options:\n" +
                     "1 Display the list of available books to borrow\n" +
                     "2 Borrow a book\n" +
@@ -58,12 +55,16 @@ public class BibliotecaApp {
                     "4 Exit\n" +
                     "Enter option:");
 
-            option = input.nextInt();
+                option = input.nextInt();
+            }
+            catch(InputMismatchException e){
 
+                input.nextLine();
+            }
             switch (option) {
                 case 1:
                     System.out.print("\n");
-                    System.out.printf("%-15s %-15s %-15s\n", "Title:", "Author:", "Year Published:");
+                    System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
                     System.out.println(displayFormattedStrings(library.getAvailableBooks()));
 
                     break;
@@ -78,7 +79,8 @@ public class BibliotecaApp {
                 case 4:
                     return;
                 default:
-                    System.out.println("Incorrect option, please try again.");
+
+                    System.out.println("\nIncorrect option, please try again.");
             }
         }
     }
@@ -89,8 +91,17 @@ public class BibliotecaApp {
 
         for(String b: books) {
             String[] token = b.split(", ");
-            formattedBooks += String.format("%-15s %-15s %-15s\n", token[0], token[1], token[2]);
+            formattedBooks += String.format("%-15s %-15s %-15s %-15s\n", token[0], token[1], token[2], token[3]);
         }
      return formattedBooks;
+    }
+
+    public void borrowMenu(){
+
+
+    }
+
+    public void returnMenu(){
+
     }
 }

@@ -5,16 +5,21 @@ package com.twu.biblioteca.Book;
  */
 public class Book {
 
+    private int id;
     private String title;
     private String author;
     private int yearPublished;
 
-    public Book(String title, String author, int yearPublished) {
+    public Book(int id, String title, String author, int yearPublished) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
     }
 
+    public int getId(){
+        return id;
+    }
     public String getTitle() {
         return title;
     }
@@ -28,6 +33,6 @@ public class Book {
     }
 
     public String toString() {
-        return this.title + ", " + this.author + ", " + this.yearPublished;
+        return this.id + ", " + this.title + ", " + this.author + ", " + this.yearPublished;
     }
 }

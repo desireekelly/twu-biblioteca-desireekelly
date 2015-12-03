@@ -13,27 +13,32 @@ public class BookTest {
     private Book book;
 
     @Before
-    public void setUp(){
-    book = new Book("Java 101", "Joe Bloggs", 1990);
+    public void setUp() throws Exception{
+    book = new Book(1, "Java 101", "Joe Bloggs", 1990);
     }
 
     @Test
-    public void testGetTitle() {
+    public void testGetId() throws Exception{
+        assertEquals(book.getId(), 1);
+    }
+
+    @Test
+    public void testGetTitle() throws Exception{
         assertEquals(book.getTitle(), "Java 101");
     }
 
     @Test
-    public void testGetAuthor(){
+    public void testGetAuthor() throws Exception{
         assertEquals(book.getAuthor(), "Joe Bloggs");
     }
 
     @Test
-    public void testGetYearPublished(){
+    public void testGetYearPublished() throws Exception{
         assertEquals(book.getYearPublished(), 1990);
     }
 
     @Test
-    public void testToString(){
-        assertEquals(book.toString(), "Java 101, Joe Bloggs, 1990");
+    public void testToString() throws Exception{
+        assertEquals(book.toString(), "1, Java 101, Joe Bloggs, 1990");
     }
 }
