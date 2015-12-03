@@ -19,17 +19,17 @@ public class ReturnMenu {
         input = new Scanner(System.in);
     }
 
-    public void displayReturnMenu(int option){
+    public void displayReturnMenu(){
         try {
             System.out.println("Select a book to return by entering the ID number or enter 0 to go back to the main menu:");
             System.out.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
             System.out.print("Enter your option:");
-            option = input.nextInt();
+            returnMenuOptions(input.nextInt(10));
         }
         catch(InputMismatchException e){
+            System.out.println("\nIncorrect option, please try again.\n");
             input.nextLine();
         }
-        returnMenuOptions(option);
     }
 
     public void returnMenuOptions(int option){

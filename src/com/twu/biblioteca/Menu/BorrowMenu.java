@@ -19,17 +19,17 @@ public class BorrowMenu {
         input = new Scanner(System.in);
     }
 
-    public void displayBorrowMenu(int option){
+    public void displayBorrowMenu(){
             try {
                 System.out.println("Select a book to borrow by entering the ID number or enter 0 to go back to the main menu:");
                 System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
                 System.out.print("Enter your option:");
-                option = input.nextInt();
+                borrowMenuOptions(input.nextInt(10));
             }
             catch(InputMismatchException e){
+                System.out.println("\nIncorrect option, please try again.\n");
                 input.nextLine();
             }
-            borrowMenuOptions(option);
     }
 
     public void borrowMenuOptions(int option){

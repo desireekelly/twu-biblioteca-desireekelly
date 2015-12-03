@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Scanner input;
-    private int option;
     private Library library;
     private BorrowMenu borrowMenu;
     private ReturnMenu returnMenu;
@@ -34,12 +33,12 @@ public class MainMenu {
                         "3 Return a book\n" +
                         "4 Exit\n" +
                         "Enter your option:");
-                option = input.nextInt();
+                mainMenuOptions(input.nextInt());
             }
             catch(InputMismatchException e){
+                System.out.println("\nIncorrect option, please try again.\n");
                 input.nextLine();
             }
-            mainMenuOptions(option);
         }
     }
 
@@ -57,7 +56,7 @@ public class MainMenu {
                     System.out.println("Sorry, there are no available books to borrow\n");
                     break;
                 }
-                borrowMenu.displayBorrowMenu(option);
+                borrowMenu.displayBorrowMenu();
                 break;
             case 3:
                 System.out.print("\n");
@@ -65,7 +64,7 @@ public class MainMenu {
                     System.out.println("Sorry, there are no available books to return\n");
                     break;
                 }
-                returnMenu.displayReturnMenu(option);
+                returnMenu.displayReturnMenu();
                 break;
             case 4:
                 System.out.println("\nThank you for using the Bangalore Public Library!");
