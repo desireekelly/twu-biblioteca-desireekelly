@@ -46,7 +46,8 @@ public class ReturnMenu {
             } catch (BookNotReturnable e) {
                 System.out.println("\n" + e.getMessage() + "\n");
             }
-        } else {
+        }
+        else {
             System.out.println("\nIncorrect option, please try again.\n");
         }
     }

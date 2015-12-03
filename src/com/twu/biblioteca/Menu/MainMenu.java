@@ -56,10 +56,18 @@ public class MainMenu {
                 break;
             case 2:
                 System.out.print("\n");
+                if(library.getAvailableBooks().isEmpty()){
+                    System.out.println("Sorry, there are no available books to borrow\n");
+                    break;
+                }
                 borrowMenu.displayBorrowMenu(option);
                 break;
             case 3:
                 System.out.print("\n");
+                if(library.getBorrowedBooks().isEmpty()){
+                    System.out.println("Sorry, there are no available books to return\n");
+                    break;
+                }
                 returnMenu.displayReturnMenu(option);
                 break;
             case 4:
