@@ -41,8 +41,7 @@ public class BorrowMenu {
             try {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
-                System.out.println("\nThank you! Enjoy reading " + bookToBorrow.getTitle().toString() + "!");
-                System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
+                System.out.println("\nThank you! Enjoy reading " + bookToBorrow.getTitle().toString() + "!\n");
             } catch (BookNotBorrowable e) {
                 System.out.println("\n" + e.getMessage() + "\n");
             }
