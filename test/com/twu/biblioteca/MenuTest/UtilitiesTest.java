@@ -24,6 +24,9 @@ public class UtilitiesTest {
     @Test
     public void testDisplayFormattedBookList() throws Exception {
         books.add(new Book("Java 101", "Joe Bloggs", 1990));
-        assertTrue(Utilities.displayFormattedBookList(books).contains("1               Java 101        Joe Bloggs      1990"));
+        books.add(new Book("PHP 101", "Mary Jane", 2005));
+        assertEquals("1               Java 101        Joe Bloggs      1990           \n" +
+                        "2               PHP 101         Mary Jane       2005           \n",
+                Utilities.displayFormattedBookList(books).toString());
     }
 }
