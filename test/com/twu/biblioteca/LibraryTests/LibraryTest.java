@@ -1,5 +1,6 @@
 package com.twu.biblioteca.LibraryTests;
 
+import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
@@ -12,6 +13,12 @@ import org.junit.Test;
  */
 public class LibraryTest {
 
+    // Books in the library
+    public static final Book BOOK_1 = new Book(1, "Java 101", "Joe Bloggs", 1990);
+    public static final Book BOOK_2 = new Book(2, "PHP 101", "Mary Jane", 2005);
+    public static final Book BOOK_3 = new Book(3, "C# 101", "John Smith", 2010);
+    public static final Book BOOK_4 = new Book(4, "C++ 101", "Joyce Merry", 2001);
+
     private Library library;
 
     @Before
@@ -21,14 +28,14 @@ public class LibraryTest {
 
     @Test
     public void testCreateBookList() throws Exception {
-        assertEquals("Java 101", library.getBookList().get(0).getTitle());
-        assertEquals("PHP 101", library.getBookList().get(1).getTitle());
-        assertEquals("C# 101", library.getBookList().get(2).getTitle());
-        assertEquals("C++ 101", library.getBookList().get(3).getTitle());
+        assertEquals(BOOK_1, library.getBookList().get(0));
+        assertEquals(BOOK_2, library.getBookList().get(1));
+        assertEquals(BOOK_3, library.getBookList().get(2));
+        assertEquals(BOOK_4, library.getBookList().get(3));
     }
 
     @Test
-    public void testCheckoutBook() throws BookNotBorrowable{
+    public void testCheckoutBook() throws BookNotBorrowable {
         library.checkoutBook(library.getBookList().get(0));
     }
 
@@ -50,23 +57,17 @@ public class LibraryTest {
     }
 
     @Test
-    public void testGetBookList() throws Exception {
-        assertEquals(library.getBookList().get(0).toString(), "1, Java 101, Joe Bloggs, 1990");
-        assertEquals(library.getBookList().get(1).toString(), "2, PHP 101, Mary Jane, 2005");
-        assertEquals(library.getBookList().get(2).toString(), "3, C# 101, John Smith, 2010");
-        assertEquals(library.getBookList().get(3).toString(), "4, C++ 101, Joyce Merry, 2001");
-    }
-
-    @Test
     public void testGetBorrowedBooks() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
-        assertTrue(library.getBorrowedBooks().toString().contains("1, Java 101, Joe Bloggs, 1990"));
+        assertTrue(library.getBorrowedBooks().contains(BOOK_1));
     }
 
     @Test
     public void testGetAvailableBooks() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
+        assertFalse(library.getAvailableBooks().contains(BOOK_1));
+
         library.checkoutBook(library.getBookList().get(1));
-        assertEquals(library.getAvailableBooks(),"3, C# 101, John Smith, 2010\n4, C++ 101, Joyce Merry, 2001\n");
+        assertFalse(library.getAvailableBooks().contains(BOOK_2));
     }
 }

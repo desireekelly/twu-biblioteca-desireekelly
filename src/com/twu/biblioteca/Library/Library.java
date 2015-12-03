@@ -19,30 +19,30 @@ public class Library {
     }
 
     private void createBookList(){
-        Book b1 = new Book(1, "Java 101", "Joe Bloggs", 1990);
-        Book b2 = new Book(2, "PHP 101", "Mary Jane", 2005);
-        Book b3 = new Book(3, "C# 101", "John Smith", 2010);
-        Book b4 = new Book(4, "C++ 101", "Joyce Merry", 2001);
-
-        books.add(b1);
-        books.add(b2);
-        books.add(b3);
-        books.add(b4);
+        books.add(new Book(1, "Java 101", "Joe Bloggs", 1990));
+        books.add(new Book(2, "PHP 101", "Mary Jane", 2005));
+        books.add(new Book(3, "C# 101", "John Smith", 2010));
+        books.add(new Book(4, "C++ 101", "Joyce Merry", 2001));
     }
 
-    public String getAvailableBooks(){
-        String availableBooks = "";
-
-        for (Book b : books) {
-            if (!borrowedBooks.contains(b)) {
-                availableBooks += b + "\n";
+    public List<Book> getAvailableBooks() {
+        List<Book> results = new ArrayList<Book>(books.size());
+        for(Book b : books) {
+            if(!borrowedBooks.contains(b)) {
+                results.add(b);
             }
         }
-        return availableBooks;
+        return results;
     }
 
-    public Set<Book> getBorrowedBooks(){
-        return borrowedBooks;
+    public List<Book> getBorrowedBooks() {
+        List<Book> results = new ArrayList<Book>(books.size());
+        for(Book b : books) {
+            if(borrowedBooks.contains(b)) {
+                results.add(b);
+            }
+        }
+        return results;
     }
 
     public List<Book> getBookList() {

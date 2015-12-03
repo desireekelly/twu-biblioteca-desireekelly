@@ -1,7 +1,9 @@
 package com.twu.biblioteca.Biblioteca;
 
+import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Library.Library;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -73,13 +75,21 @@ public class BibliotecaApp {
      return formattedBooks;
     }
 
+    private String bookListToString(List<Book> books) {
+        StringBuffer buff = new StringBuffer();
+        for (Book b : books) {
+            buff.append(b);
+        }
+        return buff.toString();
+    }
+
     public void menuOptions(int option){
         switch(option) {
             case 1:
                 System.out.print("\n");
                 System.out.println("Available Books: \n");
                 System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
-                System.out.println(displayFormattedStrings(library.getAvailableBooks()));
+                System.out.println(displayFormattedStrings(bookListToString(library.getAvailableBooks())));
                 break;
             case 2:
                 System.out.print("\n");

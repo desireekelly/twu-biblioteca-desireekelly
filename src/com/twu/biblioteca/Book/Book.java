@@ -17,9 +17,10 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
+
     public String getTitle() {
         return title;
     }
@@ -34,5 +35,19 @@ public class Book {
 
     public String toString() {
         return this.id + ", " + this.title + ", " + this.author + ", " + this.yearPublished;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!obj.getClass().equals(this.getClass())) {
+            return false;
+        }
+
+        Book otherBook = (Book) obj;
+
+        return this.id == otherBook.id
+                && this.title.equals(otherBook.title)
+                && this.author.equals(otherBook.author)
+                && this.yearPublished == otherBook.yearPublished;
     }
 }
