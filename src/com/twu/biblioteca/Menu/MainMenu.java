@@ -16,12 +16,10 @@ public class MainMenu {
     private ReturnMenu returnMenu;
 
     public MainMenu(Library library){
-
         this.library = library;
         input = new Scanner(System.in);
         borrowMenu = new BorrowMenu(library);
         returnMenu = new ReturnMenu(library);
-
     }
 
     public void mainMenu(){
@@ -37,7 +35,6 @@ public class MainMenu {
                         "4 Exit\n" +
                         "Enter your option:");
                 option = input.nextInt();
-
             }
             catch(InputMismatchException e){
                 input.nextLine();

@@ -15,7 +15,6 @@ public class BorrowMenu {
     private Library library;
 
     public BorrowMenu(Library library){
-
         this.library = library;
         input = new Scanner(System.in);
     }

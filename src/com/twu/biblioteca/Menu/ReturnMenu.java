@@ -41,7 +41,7 @@ public class ReturnMenu {
             try {
                 Book bookToReturn = library.getBorrowedBooks().get(option - 1);
                 library.returnBook(bookToReturn);
-                System.out.println("\nThank you! for returning " + bookToReturn.getTitle().toString() + "!");
+                System.out.println("\nThank you for returning " + bookToReturn.getTitle().toString() + "!");
                 System.out.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
             } catch (BookNotReturnable e) {
                 System.out.println("\n" + e.getMessage() + "\n");
