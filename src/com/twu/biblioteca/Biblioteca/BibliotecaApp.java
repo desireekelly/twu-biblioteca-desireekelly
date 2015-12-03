@@ -14,7 +14,8 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        MainMenu launch = new MainMenu();
+        Library library = new Library();
+        MainMenu launch = new MainMenu(library);
         launch.mainMenu();
     }
 }

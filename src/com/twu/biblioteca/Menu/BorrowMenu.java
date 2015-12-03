@@ -15,9 +15,9 @@ public class BorrowMenu {
     private Scanner input;
     private Library library;
 
-    public BorrowMenu(){
+    public BorrowMenu(Library library){
 
-        library = new Library();
+        this.library = library;
         input = new Scanner(System.in);
 
     }
@@ -37,46 +37,21 @@ public class BorrowMenu {
 
     public void borrowMenuOptions(int option){
 
-    switch (option) {
+        if (option == 0) {
+            System.out.print("\n");
+            return;
+        }
 
-        case 1:
+        if (option > 0 && option <= library.getAvailableBooks().size()) {
             try {
-                Book bookToBorrow = library.getAvailableBooks().get(0);
+                Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
                 System.out.println("\nThank you! Enjoy reading " + bookToBorrow.getTitle().toString() + "!");
                 System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
             } catch (BookNotBorrowable e) {
                 System.out.println("\n" + e.getMessage() + "\n");
             }
-            break;
-        case 2:
-            try {
-                library.checkoutBook(library.getAvailableBooks().get(1));
-                System.out.println("\nThank you! Enjoy reading " + library.getAvailableBooks().get(1).getTitle().toString() + "!");
-            } catch (BookNotBorrowable e) {
-                System.out.println("\n" + e.getMessage() + "\n");
-            }
-            break;
-        case 3:
-            try {
-                library.checkoutBook(library.getAvailableBooks().get(2));
-                System.out.println("\nThank you! Enjoy reading " + library.getAvailableBooks().get(2).getTitle().toString() + "!");
-            } catch (BookNotBorrowable e) {
-                System.out.println("\n" + e.getMessage() + "\n");
-            }
-            break;
-        case 4:
-            try {
-                library.checkoutBook(library.getAvailableBooks().get(3));
-                System.out.println("\nThank you! Enjoy reading " + library.getAvailableBooks().get(3).getTitle().toString() + "!");
-            } catch (BookNotBorrowable e) {
-                System.out.println("\n" + e.getMessage() + "\n");
-            }
-            break;
-        case 0:
-            System.out.print("\n");
-            return;
-        default:
+        } else {
             System.out.println("\nIncorrect option, please try again.\n");
         }
     }

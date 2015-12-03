@@ -15,12 +15,14 @@ public class MainMenu {
     private int option;
     private Library library;
     private BorrowMenu borrowMenu;
+    private ReturnMenu returnMenu;
 
-    public MainMenu(){
+    public MainMenu(Library library){
 
-        library = new Library();
+        this.library = library;
         input = new Scanner(System.in);
-        borrowMenu = new BorrowMenu();
+        borrowMenu = new BorrowMenu(library);
+        returnMenu = new ReturnMenu(library);
 
     }
 
