@@ -5,21 +5,16 @@ package com.twu.biblioteca.Book;
  */
 public class Book {
 
-    private int id;
     private String title;
     private String author;
     private int yearPublished;
 
-    public Book(int id, String title, String author, int yearPublished) {
-        this.id = id;
+    public Book(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getTitle() {
         return title;
@@ -34,7 +29,7 @@ public class Book {
     }
 
     public String toString() {
-        return this.id + ", " + this.title + ", " + this.author + ", " + this.yearPublished;
+        return this.title + ", " + this.author + ", " + this.yearPublished;
     }
 
     @Override
@@ -45,8 +40,7 @@ public class Book {
 
         Book otherBook = (Book) obj;
 
-        return this.id == otherBook.id
-                && this.title.equals(otherBook.title)
+        return this.title.equals(otherBook.title)
                 && this.author.equals(otherBook.author)
                 && this.yearPublished == otherBook.yearPublished;
     }

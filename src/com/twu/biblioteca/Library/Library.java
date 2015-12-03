@@ -19,10 +19,10 @@ public class Library {
     }
 
     private void createBookList(){
-        books.add(new Book(1, "Java 101", "Joe Bloggs", 1990));
-        books.add(new Book(2, "PHP 101", "Mary Jane", 2005));
-        books.add(new Book(3, "C# 101", "John Smith", 2010));
-        books.add(new Book(4, "C++ 101", "Joyce Merry", 2001));
+        books.add(new Book("Java 101", "Joe Bloggs", 1990));
+        books.add(new Book("PHP 101", "Mary Jane", 2005));
+        books.add(new Book("C# 101", "John Smith", 2010));
+        books.add(new Book("C++ 101", "Joyce Merry", 2001));
     }
 
     public List<Book> getAvailableBooks() {

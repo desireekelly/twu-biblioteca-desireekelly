@@ -14,12 +14,7 @@ public class BookTest {
 
     @Before
     public void setUp() throws Exception{
-    book = new Book(1, "Java 101", "Joe Bloggs", 1990);
-    }
-
-    @Test
-    public void testGetId() throws Exception{
-        assertEquals(book.getId(), 1);
+    book = new Book("Java 101", "Joe Bloggs", 1990);
     }
 
     @Test
@@ -39,6 +34,6 @@ public class BookTest {
 
     @Test
     public void testToString() throws Exception{
-        assertEquals(book.toString(), "1, Java 101, Joe Bloggs, 1990");
+        assertEquals(book.toString(), "Java 101, Joe Bloggs, 1990");
     }
 }

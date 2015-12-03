@@ -14,10 +14,10 @@ import org.junit.Test;
 public class LibraryTest {
 
     // Books in the library
-    public static final Book BOOK_1 = new Book(1, "Java 101", "Joe Bloggs", 1990);
-    public static final Book BOOK_2 = new Book(2, "PHP 101", "Mary Jane", 2005);
-    public static final Book BOOK_3 = new Book(3, "C# 101", "John Smith", 2010);
-    public static final Book BOOK_4 = new Book(4, "C++ 101", "Joyce Merry", 2001);
+    public static final Book BOOK_1 = new Book("Java 101", "Joe Bloggs", 1990);
+    public static final Book BOOK_2 = new Book("PHP 101", "Mary Jane", 2005);
+    public static final Book BOOK_3 = new Book("C# 101", "John Smith", 2010);
+    public static final Book BOOK_4 = new Book("C++ 101", "Joyce Merry", 2001);
 
     private Library library;
 
