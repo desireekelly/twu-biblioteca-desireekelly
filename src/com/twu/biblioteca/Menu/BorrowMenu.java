@@ -3,12 +3,11 @@ package com.twu.biblioteca.Menu;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Library.Library;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by desiree on 3/12/2015.
+ * Created by Desiree Kelly on 3/12/2015.
  */
 public class BorrowMenu {
 
@@ -19,7 +18,6 @@ public class BorrowMenu {
 
         this.library = library;
         input = new Scanner(System.in);
-
     }
 
     public void displayBorrowMenu(int option){
@@ -36,12 +34,10 @@ public class BorrowMenu {
     }
 
     public void borrowMenuOptions(int option){
-
         if (option == 0) {
             System.out.print("\n");
             return;
         }
-
         if (option > 0 && option <= library.getAvailableBooks().size()) {
             try {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);

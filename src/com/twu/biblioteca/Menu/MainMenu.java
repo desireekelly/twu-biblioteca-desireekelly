@@ -1,13 +1,11 @@
 package com.twu.biblioteca.Menu;
 
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Library.Library;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by desiree on 3/12/2015.
+ * Created by Desiree Kelly on 3/12/2015.
  */
 public class MainMenu {
 
@@ -62,7 +60,7 @@ public class MainMenu {
                 break;
             case 3:
                 System.out.print("\n");
-                System.out.println("Return book process\n");
+                returnMenu.displayReturnMenu(option);
                 break;
             case 4:
                 System.out.println("\nThank you for using the Bangalore Public Library!");

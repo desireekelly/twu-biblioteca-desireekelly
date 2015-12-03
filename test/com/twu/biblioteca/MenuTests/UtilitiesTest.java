@@ -1,4 +1,4 @@
-package com.twu.biblioteca.MenuTest;
+package com.twu.biblioteca.MenuTests;
 
 import java.util.List;
 import com.twu.biblioteca.Book.Book;
