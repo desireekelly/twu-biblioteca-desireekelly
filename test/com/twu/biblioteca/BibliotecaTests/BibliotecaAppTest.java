@@ -22,17 +22,8 @@ public class BibliotecaAppTest {
     @Test
     public void displayFormattedStrings() throws Exception {
         String books = "1, Java 101, Joe Bloggs, 1990";
-        assertEquals(biblioteca.displayFormattedStrings(books.toString()), "1               Java 101        Joe Bloggs      1990           \n");
-    }
-
-    @Test
-    public void testBorrowMenu() throws Exception {
-
-
-    }
-
-    @Test public void testReturnMenu() throws Exception{
-
+        assertEquals(biblioteca.displayFormattedStrings(books.toString()),
+                "1               Java 101        Joe Bloggs      1990           \n");
     }
 
     @Test(expected=InputMismatchException.class)
