@@ -63,14 +63,9 @@ public class BibliotecaApp {
             switch (option) {
                 case 1:
                     System.out.print("\n");
-                    System.out.printf("%-15s %-15s %-15s\n", "Title", "Author", "Year Published");
+                    System.out.printf("%-15s %-15s %-15s\n", "Title:", "Author:", "Year Published:");
+                    System.out.println(displayFormattedStrings(library.getAvailableBooks()));
 
-                    String [] books = library.getAvailableBooks().split("\\r?\\n");
-
-                    for(String b: books) {
-                            String []  token = b.split(", ");
-                            System.out.printf("%-15s %-15s %-15s\n", token[0], token[1], token[2]);
-                    }
                     break;
                 case 2:
                     System.out.print("\n");
@@ -86,5 +81,16 @@ public class BibliotecaApp {
                     System.out.println("Incorrect option, please try again.");
             }
         }
+    }
+
+    public String displayFormattedStrings(String availableBooks){
+        String [] books = availableBooks.split("\\r?\\n");
+        String formattedBooks = "";
+
+        for(String b: books) {
+            String[] token = b.split(", ");
+            formattedBooks += String.format("%-15s %-15s %-15s\n", token[0], token[1], token[2]);
+        }
+     return formattedBooks;
     }
 }
