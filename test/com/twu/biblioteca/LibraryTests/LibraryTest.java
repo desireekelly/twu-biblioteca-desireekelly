@@ -4,16 +4,17 @@ import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Tests for the Library class.
  *
- * @see Library
  * @author Desiree Kelly
  * @version 1.0
+ * @see Library
  */
 public class LibraryTest {
 
@@ -49,13 +50,13 @@ public class LibraryTest {
         library.returnBook(library.getBookList().get(0));
     }
 
-    @Test(expected=BookNotReturnable.class)
-    public void testExceptionThrownWhenBookAlreadyReturned() throws Exception{
+    @Test(expected = BookNotReturnable.class)
+    public void testExceptionThrownWhenBookAlreadyReturned() throws Exception {
         library.returnBook(library.getBookList().get(0));
     }
 
-    @Test(expected=BookNotBorrowable.class)
-    public void testExceptionThrownWhenBookBorrowedTwice() throws Exception{
+    @Test(expected = BookNotBorrowable.class)
+    public void testExceptionThrownWhenBookBorrowedTwice() throws Exception {
         library.checkoutBook(library.getBookList().get(0));
         library.checkoutBook(library.getBookList().get(0));
     }

@@ -3,13 +3,14 @@ package com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
+
 import java.util.*;
 
 /**
- * The Library is responsible for holding the available and borrowed books.
+ * Library is responsible for holding the available and borrowed books.
  *
- * @version 1.0
  * @author Desiree Kelly
+ * @version 1.0
  */
 public class Library {
 
@@ -23,7 +24,7 @@ public class Library {
         this.createBookList();
     }
 
-    private void createBookList(){
+    private void createBookList() {
         books.add(new Book("Java 101", "Joe Bloggs", 1990));
         books.add(new Book("PHP 101", "Mary Jane", 2005));
         books.add(new Book("C# 101", "John Smith", 2010));
@@ -37,8 +38,8 @@ public class Library {
      */
     public List<Book> getAvailableBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
-        for(Book b : books) {
-            if(!borrowedBooks.contains(b)) {
+        for (Book b : books) {
+            if (!borrowedBooks.contains(b)) {
                 results.add(b);
             }
         }
@@ -52,8 +53,8 @@ public class Library {
      */
     public List<Book> getBorrowedBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
-        for(Book b : books) {
-            if(borrowedBooks.contains(b)) {
+        for (Book b : books) {
+            if (borrowedBooks.contains(b)) {
                 results.add(b);
             }
         }
@@ -73,7 +74,7 @@ public class Library {
      * Check out a book.
      *
      * @param book The book to check out.
-     * @throws BookNotBorrowable Thrown if book is not availble to check out.
+     * @throws BookNotBorrowable Thrown if book is not available to check out.
      */
     public void checkoutBook(Book book) throws BookNotBorrowable {
         if (borrowedBooks.contains(book))
