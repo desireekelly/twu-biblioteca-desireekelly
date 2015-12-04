@@ -4,7 +4,10 @@ import com.twu.biblioteca.Library.Library;
 import com.twu.biblioteca.Menu.MainMenu;
 
 /**
- * Created by Desiree Kelly on 2/12/2015.
+ * BibliotecaApp is responsible for launching the Biblioteca Library System.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class BibliotecaApp {
 

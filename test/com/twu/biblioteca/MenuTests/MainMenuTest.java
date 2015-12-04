@@ -3,14 +3,15 @@ package com.twu.biblioteca.MenuTests;
 import com.twu.biblioteca.Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.InputMismatchException;
 
 /**
  * Tests for the MainMenu class.
  *
- * @see MainMenu
  * @author Desiree Kelly
  * @version 1.0
+ * @see MainMenu
  */
 public class MainMenuTest {
 
@@ -29,8 +30,8 @@ public class MainMenuTest {
 
     }
 
-    @Test(expected=InputMismatchException.class)
-    public void testExceptionThrownWithInvalidMenuOption() throws InputMismatchException{
+    @Test(expected = InputMismatchException.class)
+    public void testExceptionThrownWithInvalidMenuOption() throws InputMismatchException {
         throw new InputMismatchException();
     }
 }
