@@ -1,20 +1,21 @@
 package com.twu.biblioteca.MenuTests;
 
-import java.util.List;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Menu.Utilities;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the Utilities class.
  *
- * @see Utilities
  * @author Desiree Kelly
  * @version 1.0
+ * @see Utilities
  */
 public class UtilitiesTest {
 
@@ -22,7 +23,7 @@ public class UtilitiesTest {
 
     @Before
     public void setUp() throws Exception {
-    books = new ArrayList<Book>();
+        books = new ArrayList<Book>();
     }
 
     @Test

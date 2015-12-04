@@ -1,11 +1,14 @@
 package com.twu.biblioteca.Exceptions;
 
 /**
- * Created by Desiree Kelly on 2/12/2015.
+ * BookNotBorrowable is responsible for handling exceptions for books that are unavailable to borrow.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class BookNotBorrowable extends Exception {
 
-    public BookNotBorrowable(String msg){
+    public BookNotBorrowable(String msg) {
         super(msg);
     }
 }

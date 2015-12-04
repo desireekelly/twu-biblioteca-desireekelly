@@ -1,11 +1,14 @@
 package com.twu.biblioteca.Exceptions;
 
 /**
- * Created by Desiree Kelly on 2/12/2015.
+ * BookNotReturnable is responsible for handling exceptions for books that are unavailable to return.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class BookNotReturnable extends Exception {
 
-    public BookNotReturnable(String msg){
+    public BookNotReturnable(String msg) {
         super(msg);
     }
 }
