@@ -1,11 +1,16 @@
 package com.twu.biblioteca.MenuTests;
 
+import com.twu.biblioteca.Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.InputMismatchException;
 
 /**
- * Created by Desiree Kelly on 4/12/2015.
+ * Tests for the MainMenu class.
+ *
+ * @see MainMenu
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class MainMenuTest {
 

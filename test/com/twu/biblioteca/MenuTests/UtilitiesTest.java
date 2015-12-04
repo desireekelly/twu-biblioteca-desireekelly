@@ -10,7 +10,11 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 /**
- * Created by Desiree Kelly on 3/12/2015.
+ * Tests for the Utilities class.
+ *
+ * @see Utilities
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class UtilitiesTest {
 
