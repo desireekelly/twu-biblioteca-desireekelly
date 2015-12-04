@@ -1,11 +1,15 @@
 package com.twu.biblioteca.Menu;
 
 import com.twu.biblioteca.Library.Library;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by Desiree Kelly on 3/12/2015.
+ * MainMenu is responsible for handling the main menu navigation.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public class MainMenu {
 
@@ -14,18 +18,24 @@ public class MainMenu {
     private BorrowMenu borrowMenu;
     private ReturnMenu returnMenu;
 
-    public MainMenu(Library library){
+    /**
+     * Construct a main menu with access to the Library.
+     */
+    public MainMenu(Library library) {
         this.library = library;
         input = new Scanner(System.in);
         borrowMenu = new BorrowMenu(library);
         returnMenu = new ReturnMenu(library);
     }
 
-    public void mainMenu(){
+    /**
+     * Display the main menu options.
+     */
+    public void mainMenu() {
         System.out.println("Welcome to the Bangalore Public Library!\n");
         System.out.println("We know you'll find a book here that you love!\n");
 
-        while(true) {
+        while (true) {
             try {
                 System.out.print("Enter one of the following options:\n" +
                         "1 Display the list of available books to borrow\n" +
@@ -34,16 +44,20 @@ public class MainMenu {
                         "4 Exit\n" +
                         "Enter your option:");
                 mainMenuOptions(input.nextInt());
-            }
-            catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("\nIncorrect option, please try again.\n");
                 input.nextLine();
             }
         }
     }
 
-    public void mainMenuOptions(int option){
-        switch(option) {
+    /**
+     * Dispatch to available books, borrow, return or exit.
+     *
+     * @param option The option entered on the main menu.
+     */
+    public void mainMenuOptions(int option) {
+        switch (option) {
             case 1:
                 System.out.print("\n");
                 System.out.println("Available Books: \n");
@@ -52,7 +66,7 @@ public class MainMenu {
                 break;
             case 2:
                 System.out.print("\n");
-                if(library.getAvailableBooks().isEmpty()){
+                if (library.getAvailableBooks().isEmpty()) {
                     System.out.println("Sorry, there are no available books to borrow\n");
                     break;
                 }
@@ -60,7 +74,7 @@ public class MainMenu {
                 break;
             case 3:
                 System.out.print("\n");
-                if(library.getBorrowedBooks().isEmpty()){
+                if (library.getBorrowedBooks().isEmpty()) {
                     System.out.println("Sorry, there are no available books to return\n");
                     break;
                 }

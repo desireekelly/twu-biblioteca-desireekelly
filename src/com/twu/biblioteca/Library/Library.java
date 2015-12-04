@@ -62,7 +62,7 @@ public class Library {
     }
 
     /**
-     * Gets the list of all books this library has.
+     * Get the list of all books this library has.
      *
      * @return Returns the book catalog.
      */
