@@ -26,12 +26,12 @@ public class MainMenu {
     /**
      * Construct a main menu with access to the Library.
      */
-    public MainMenu(Library library, InputStream inputStream, PrintStream outputStream) {
+    public MainMenu(Library library, InputStream inputStream, PrintStream outputStream, BorrowMenu borrowMenu, ReturnMenu returnMenu) {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
-        this.borrowMenu = new BorrowMenu(library);
-        this.returnMenu = new ReturnMenu(library);
+        this.borrowMenu = borrowMenu;
+        this.returnMenu = returnMenu;
     }
 
     /**
