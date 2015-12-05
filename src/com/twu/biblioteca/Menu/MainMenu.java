@@ -46,6 +46,7 @@ public class MainMenu {
         while (!exit) {
             try {
                 outputStream.print(Messages.mainMenuMessage());
+                outputStream.print(Messages.optionMessage());
                 mainMenuOptions(input.nextInt());
             } catch (InputMismatchException e) {
                 outputStream.print(Messages.incorrectInputMessage());
@@ -80,7 +81,7 @@ public class MainMenu {
                 returnMenu.displayReturnMenu();
                 break;
             case 4:
-                outputStream.print(Messages.thankYouMessage());
+                outputStream.print(Messages.exitMessage());
                 exit = true;
                 break;
             default:

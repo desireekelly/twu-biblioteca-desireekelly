@@ -15,9 +15,13 @@ public class Messages {
               "1 Display the list of available books to borrow\n" +
         "2 Borrow a book\n" +
         "3 Return a book\n" +
-        "4 Exit\n" +
-        "Enter your option:";
+        "4 Exit\n";
         return mainMenuMessage;
+    }
+
+    public static String optionMessage(){
+        String optionMessage = "Enter your option:";
+        return optionMessage;
     }
 
     public static String bookListingMessage(){
@@ -41,8 +45,18 @@ public class Messages {
         return incorrectBorrowMessage;
     }
 
-    public static String thankYouMessage() {
-        String thankYouMessage = "\nThank you for using the Bangalore Public Library!\n";
-        return thankYouMessage;
+    public static String exitMessage() {
+        String exitMessage = "\nThank you for using the Bangalore Public Library!\n";
+        return exitMessage;
+    }
+
+    public static String borrowMessage() {
+        String borrowMessage = "\nSelect a book to borrow by entering the ID number or enter 0 to go back to the main menu:\n";
+        return borrowMessage;
+    }
+
+    public static String borrowThankYouMessage() {
+        String borrowThankYouMessage = "\nThank you! Enjoy reading ";
+        return borrowThankYouMessage;
     }
 }

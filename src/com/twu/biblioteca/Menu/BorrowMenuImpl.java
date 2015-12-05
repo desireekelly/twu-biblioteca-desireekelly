@@ -3,6 +3,7 @@ package com.twu.biblioteca.Menu;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Library.Library;
+import com.twu.biblioteca.Utilities.Messages;
 import com.twu.biblioteca.Utilities.Utilities;
 
 import java.util.InputMismatchException;
@@ -33,13 +34,13 @@ public class BorrowMenuImpl implements BorrowMenu {
     @Override
     public void displayBorrowMenu() {
         try {
-            System.out.println("\nSelect a book to borrow by entering the ID number or enter 0 to go back to the main menu:\n");
-            System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
+            System.out.print(Messages.borrowMessage());
+            System.out.print(Messages.bookListingMessage());
             System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
-            System.out.print("Enter your option:");
+            System.out.print(Messages.optionMessage());
             borrowMenuOptions(input.nextInt(10));
         } catch (InputMismatchException e) {
-            System.out.println("\nIncorrect option, please try again.\n");
+            System.out.println(Messages.incorrectInputMessage());
             input.nextLine();
         }
     }
@@ -58,12 +59,12 @@ public class BorrowMenuImpl implements BorrowMenu {
             try {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
-                System.out.println("\nThank you! Enjoy reading " + bookToBorrow.getTitle().toString() + "!\n");
+                System.out.println(Messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
             } catch (BookNotBorrowable e) {
                 System.out.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            System.out.println("\nIncorrect option, please try again.\n");
+            System.out.println(Messages.incorrectInputMessage());
         }
     }
 }
