@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by desiree on 5/12/2015.
  */
-public class Message {
+public class Messages {
 
     public static String welcomeMessage(){
         String welcomeMessage = "Welcome to the Bangalore Public Library!\n\nWe know you'll find a book here that you love!\n";

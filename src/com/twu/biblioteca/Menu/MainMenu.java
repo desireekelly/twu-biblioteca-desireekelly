@@ -1,7 +1,7 @@
 package com.twu.biblioteca.Menu;
 
 import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Utilities.Message;
+import com.twu.biblioteca.Utilities.Messages;
 import com.twu.biblioteca.Utilities.Utilities;
 
 import java.util.InputMismatchException;
@@ -35,14 +35,14 @@ public class MainMenu {
      */
     public void mainMenu() {
 
-        System.out.println(Message.welcomeMessage());
+        System.out.println(Messages.welcomeMessage());
 
         while (true) {
             try {
-                System.out.print(Message.mainMenuMessage());
+                System.out.print(Messages.mainMenuMessage());
                 mainMenuOptions(input.nextInt());
             } catch (InputMismatchException e) {
-                System.out.println(Message.errorMessage());
+                System.out.println(Messages.errorMessage());
                 input.nextLine();
             }
         }
