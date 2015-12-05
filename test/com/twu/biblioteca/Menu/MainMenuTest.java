@@ -1,6 +1,5 @@
-package com.twu.biblioteca.MenuTests;
+package com.twu.biblioteca.Menu;
 
-import com.twu.biblioteca.Menu.MainMenu;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,6 +1,5 @@
-package com.twu.biblioteca.BookTests;
+package com.twu.biblioteca.Book;
 
-import com.twu.biblioteca.Book.Book;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

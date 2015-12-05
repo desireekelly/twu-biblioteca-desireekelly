@@ -1,9 +1,8 @@
-package com.twu.biblioteca.LibraryTests;
+package com.twu.biblioteca.Library;
 
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Library.Library;
 import org.junit.Before;
 import org.junit.Test;
 
