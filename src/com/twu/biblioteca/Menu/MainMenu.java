@@ -57,7 +57,7 @@ public class MainMenu {
      *
      * @param option The option entered on the main menu.
      */
-    public void mainMenuOptions(int option) {
+    /* package */ void mainMenuOptions(int option) {
         switch (option) {
             case 1:
                 outputStream.print("\n");
