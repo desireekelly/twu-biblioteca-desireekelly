@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Menu;
 
 import com.twu.biblioteca.Library.Library;
+import com.twu.biblioteca.Utilities.Message;
 import com.twu.biblioteca.Utilities.Utilities;
 
 import java.util.InputMismatchException;
@@ -33,20 +34,15 @@ public class MainMenu {
      * Display the main menu options.
      */
     public void mainMenu() {
-        System.out.println("Welcome to the Bangalore Public Library!\n");
-        System.out.println("We know you'll find a book here that you love!\n");
+
+        System.out.println(Message.welcomeMessage());
 
         while (true) {
             try {
-                System.out.print("Enter one of the following options:\n" +
-                        "1 Display the list of available books to borrow\n" +
-                        "2 Borrow a book\n" +
-                        "3 Return a book\n" +
-                        "4 Exit\n" +
-                        "Enter your option:");
+                System.out.print(Message.mainMenuMessage());
                 mainMenuOptions(input.nextInt());
             } catch (InputMismatchException e) {
-                System.out.println("\nIncorrect option, please try again.\n");
+                System.out.println(Message.errorMessage());
                 input.nextLine();
             }
         }
