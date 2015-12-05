@@ -2,9 +2,7 @@ package com.twu.biblioteca.Biblioteca;
 
 import com.twu.biblioteca.Library.Library;
 import com.twu.biblioteca.Library.LibraryImpl;
-import com.twu.biblioteca.Menu.BorrowMenu;
-import com.twu.biblioteca.Menu.MainMenu;
-import com.twu.biblioteca.Menu.ReturnMenu;
+import com.twu.biblioteca.Menu.*;
 
 /**
  * BibliotecaApp is responsible for launching the Biblioteca Library System.
@@ -16,8 +14,8 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = new LibraryImpl();
-        BorrowMenu borrowMenu = new BorrowMenu(library);
-        ReturnMenu returnMenu = new ReturnMenu(library);
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library);
+        ReturnMenu returnMenu = new ReturnMenuImpl(library);
         MainMenu launch = new MainMenu(library, System.in, System.out, borrowMenu, returnMenu);
         launch.mainMenu();
     }
