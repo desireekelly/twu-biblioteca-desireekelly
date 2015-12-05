@@ -33,7 +33,8 @@ public class ReturnMenuImpl implements ReturnMenu {
     @Override
     public void displayReturnMenu() {
         try {
-            System.out.println("Select a book to return by entering the ID number or enter 0 to go back to the main menu:");
+            System.out.println("\nSelect a book to return by entering the ID number or enter 0 to go back to the main menu:\n");
+            System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
             System.out.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
             System.out.print("Enter your option:");
             returnMenuOptions(input.nextInt(10));

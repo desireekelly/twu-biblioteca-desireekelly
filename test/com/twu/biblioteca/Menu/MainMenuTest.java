@@ -4,6 +4,7 @@ import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
+import com.twu.biblioteca.Library.LibraryImpl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,10 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +26,6 @@ import static org.junit.Assert.*;
  */
 public class MainMenuTest {
 
-
     @Before
     public void setUp() throws Exception {
 
@@ -36,10 +33,23 @@ public class MainMenuTest {
 
     @Test
     public void testMainMenu() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new LibraryImpl();
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library);
+        ReturnMenu returnMenu = new ReturnMenuImpl(library);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
 
+        String output = baos.toString();
 
+        //mainMenu.mainMenu();
+    }
 
-
+    @Test(expected = InputMismatchException.class)
+    public void MainMenuThrowsInputMismatchException() throws Exception{
+        throw new InputMismatchException();
 
     }
 
@@ -63,9 +73,12 @@ public class MainMenuTest {
         mainMenu.mainMenuOptions(1);
 
         String output = baos.toString();
-        assertEquals("\nAvailable Books: \n\n" +
+        assertEquals("\n" +
+                        "Available Books:\n" +
+                        "\n" +
                         "ID:             Title:          Author:         Year Published:\n" +
-                        "1               Unit Testing 101 Uncle Bob       1947           \n\n",
+                        "1               Unit Testing 101 Uncle Bob       1947           \n" +
+                        "\n",
                 output);
 
     }
@@ -113,7 +126,7 @@ public class MainMenuTest {
         mainMenu.mainMenuOptions(2);
 
         String output = baos.toString();
-        assertEquals("\n", output);
+        assertEquals("", output);
         assertTrue(borrowMenu.displayBorrowMenuCalled);
 
     }

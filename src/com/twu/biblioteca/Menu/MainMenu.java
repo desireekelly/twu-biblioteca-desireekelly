@@ -41,14 +41,14 @@ public class MainMenu {
      */
     public void mainMenu() {
 
-        System.out.println(Messages.welcomeMessage());
+        outputStream.print(Messages.welcomeMessage());
 
         while (!exit) {
             try {
                 outputStream.print(Messages.mainMenuMessage());
                 mainMenuOptions(input.nextInt());
             } catch (InputMismatchException e) {
-                outputStream.println(Messages.errorMessage());
+                outputStream.print(Messages.incorrectInputMessage());
                 input.nextLine();
             }
         }
@@ -62,33 +62,29 @@ public class MainMenu {
     /* package */ void mainMenuOptions(int option) {
         switch (option) {
             case 1:
-                outputStream.print("\n");
-                outputStream.println("Available Books: \n");
-                outputStream.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
+                outputStream.print(Messages.bookListingMessage());
                 outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
                 break;
             case 2:
-                outputStream.print("\n");
                 if (library.getAvailableBooks().isEmpty()) {
-                    outputStream.println("Sorry, there are no available books to borrow\n");
+                    outputStream.print(Messages.incorrectBorrowMessage());
                     break;
                 }
                 borrowMenu.displayBorrowMenu();
                 break;
             case 3:
-                outputStream.print("\n");
                 if (library.getBorrowedBooks().isEmpty()) {
-                    outputStream.println("Sorry, there are no available books to return\n");
+                    outputStream.print(Messages.incorrectReturnMessage());
                     break;
                 }
                 returnMenu.displayReturnMenu();
                 break;
             case 4:
-                outputStream.println("\nThank you for using the Bangalore Public Library!");
+                outputStream.print(Messages.thankYouMessage());
                 exit = true;
                 break;
             default:
-                outputStream.println("\nIncorrect option, please try again.\n");
+                outputStream.print(Messages.incorrectInputMessage());
                 break;
         }
     }
