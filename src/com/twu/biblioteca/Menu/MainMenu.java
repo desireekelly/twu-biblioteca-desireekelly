@@ -4,6 +4,8 @@ import com.twu.biblioteca.Library.Library;
 import com.twu.biblioteca.Utilities.Messages;
 import com.twu.biblioteca.Utilities.Utilities;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,6 +18,7 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Scanner input;
+    private PrintStream outputStream;
     private Library library;
     private BorrowMenu borrowMenu;
     private ReturnMenu returnMenu;
@@ -23,11 +26,12 @@ public class MainMenu {
     /**
      * Construct a main menu with access to the Library.
      */
-    public MainMenu(Library library) {
+    public MainMenu(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;
-        input = new Scanner(System.in);
-        borrowMenu = new BorrowMenu(library);
-        returnMenu = new ReturnMenu(library);
+        this.input = new Scanner(inputStream);
+        this.outputStream = outputStream;
+        this.borrowMenu = new BorrowMenu(library);
+        this.returnMenu = new ReturnMenu(library);
     }
 
     /**
@@ -39,10 +43,10 @@ public class MainMenu {
 
         while (true) {
             try {
-                System.out.print(Messages.mainMenuMessage());
+                outputStream.print(Messages.mainMenuMessage());
                 mainMenuOptions(input.nextInt());
             } catch (InputMismatchException e) {
-                System.out.println(Messages.errorMessage());
+                outputStream.println(Messages.errorMessage());
                 input.nextLine();
             }
         }
@@ -56,32 +60,32 @@ public class MainMenu {
     public void mainMenuOptions(int option) {
         switch (option) {
             case 1:
-                System.out.print("\n");
-                System.out.println("Available Books: \n");
-                System.out.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
-                System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
+                outputStream.print("\n");
+                outputStream.println("Available Books: \n");
+                outputStream.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
+                outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
                 break;
             case 2:
-                System.out.print("\n");
+                outputStream.print("\n");
                 if (library.getAvailableBooks().isEmpty()) {
-                    System.out.println("Sorry, there are no available books to borrow\n");
+                    outputStream.println("Sorry, there are no available books to borrow\n");
                     break;
                 }
                 borrowMenu.displayBorrowMenu();
                 break;
             case 3:
-                System.out.print("\n");
+                outputStream.print("\n");
                 if (library.getBorrowedBooks().isEmpty()) {
-                    System.out.println("Sorry, there are no available books to return\n");
+                    outputStream.println("Sorry, there are no available books to return\n");
                     break;
                 }
                 returnMenu.displayReturnMenu();
                 break;
             case 4:
-                System.out.println("\nThank you for using the Bangalore Public Library!");
+                outputStream.println("\nThank you for using the Bangalore Public Library!");
                 System.exit(0);
             default:
-                System.out.println("\nIncorrect option, please try again.\n");
+                outputStream.println("\nIncorrect option, please try again.\n");
         }
     }
 }

@@ -13,7 +13,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = new Library();
-        MainMenu launch = new MainMenu(library);
+        MainMenu launch = new MainMenu(library, System.in, System.out);
         launch.mainMenu();
     }
 }
