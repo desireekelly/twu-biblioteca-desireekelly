@@ -22,6 +22,7 @@ public class MainMenu {
     private Library library;
     private BorrowMenu borrowMenu;
     private ReturnMenu returnMenu;
+    private boolean exit;
 
     /**
      * Construct a main menu with access to the Library.
@@ -32,6 +33,7 @@ public class MainMenu {
         this.outputStream = outputStream;
         this.borrowMenu = borrowMenu;
         this.returnMenu = returnMenu;
+        exit = false;
     }
 
     /**
@@ -41,7 +43,7 @@ public class MainMenu {
 
         System.out.println(Messages.welcomeMessage());
 
-        while (true) {
+        while (!exit) {
             try {
                 outputStream.print(Messages.mainMenuMessage());
                 mainMenuOptions(input.nextInt());
@@ -83,9 +85,11 @@ public class MainMenu {
                 break;
             case 4:
                 outputStream.println("\nThank you for using the Bangalore Public Library!");
-                System.exit(0);
+                exit = true;
+                break;
             default:
                 outputStream.println("\nIncorrect option, please try again.\n");
+                break;
         }
     }
 }
