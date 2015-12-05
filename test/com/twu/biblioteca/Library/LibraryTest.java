@@ -27,7 +27,7 @@ public class LibraryTest {
 
     @Before
     public void setUp() throws Exception {
-        library = new Library();
+        library = new LibraryImpl();
     }
 
     @Test

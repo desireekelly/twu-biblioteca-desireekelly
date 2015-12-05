@@ -4,71 +4,32 @@ import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 
-import java.util.*;
+import java.util.List;
 
 /**
- * Library is responsible for holding the available and borrowed books.
- *
- * @author Desiree Kelly
- * @version 1.0
+ * Created by desiree on 5/12/2015.
  */
-public class Library {
-
-    private List<Book> books = new ArrayList<Book>();
-    private Set<Book> borrowedBooks = new HashSet<Book>();
-
-    /**
-     * Construct a library with a fixed set of books.
-     */
-    public Library() {
-        this.createBookList();
-    }
-
-    private void createBookList() {
-        books.add(new Book("Java 101", "Joe Bloggs", 1990));
-        books.add(new Book("PHP 101", "Mary Jane", 2005));
-        books.add(new Book("C# 101", "John Smith", 2010));
-        books.add(new Book("C++ 101", "Joyce Merry", 2001));
-    }
-
+public interface Library {
     /**
      * Get the list of available books.
      *
      * @return Returns a list of books that are available to be borrowed.
      */
-    public List<Book> getAvailableBooks() {
-        List<Book> results = new ArrayList<Book>(books.size());
-        for (Book b : books) {
-            if (!borrowedBooks.contains(b)) {
-                results.add(b);
-            }
-        }
-        return results;
-    }
+    List<Book> getAvailableBooks();
 
     /**
      * Get the list of borrowed books.
      *
      * @return Returns a list of books that are out for loan.
      */
-    public List<Book> getBorrowedBooks() {
-        List<Book> results = new ArrayList<Book>(books.size());
-        for (Book b : books) {
-            if (borrowedBooks.contains(b)) {
-                results.add(b);
-            }
-        }
-        return results;
-    }
+    List<Book> getBorrowedBooks();
 
     /**
      * Get the list of all books this library has.
      *
      * @return Returns the book catalog.
      */
-    public List<Book> getBookList() {
-        return Collections.unmodifiableList(books);
-    }
+    List<Book> getBookList();
 
     /**
      * Check out a book.
@@ -76,11 +37,7 @@ public class Library {
      * @param book The book to check out.
      * @throws BookNotBorrowable Thrown if book is not available to check out.
      */
-    public void checkoutBook(Book book) throws BookNotBorrowable {
-        if (borrowedBooks.contains(book))
-            throw new BookNotBorrowable("Book is not available");
-        borrowedBooks.add(book);
-    }
+    void checkoutBook(Book book) throws BookNotBorrowable;
 
     /**
      * Return a checked out book.
@@ -88,9 +45,5 @@ public class Library {
      * @param book The book to return.
      * @throws BookNotReturnable Thrown if book is not currently checked out.
      */
-    public void returnBook(Book book) throws BookNotReturnable {
-        if (!borrowedBooks.contains(book))
-            throw new BookNotReturnable("Book is already returned");
-        borrowedBooks.remove(book);
-    }
+    void returnBook(Book book) throws BookNotReturnable;
 }
