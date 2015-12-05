@@ -33,18 +33,83 @@ public class MainMenuTest {
 
     @Test
     public void testMainMenu() throws Exception {
-        String input = "";
+        String input = "1\n2\n3\n4\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(baos);
-        Library library = new LibraryImpl();
-        BorrowMenu borrowMenu = new BorrowMenuImpl(library);
-        ReturnMenu returnMenu = new ReturnMenuImpl(library);
+        final PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary() {
+            @Override
+            public List<Book> getAvailableBooks() {
+                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
+            }
+
+            @Override
+            public List<Book> getBorrowedBooks() {
+                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
+            }
+
+            @Override
+            public List<Book> getBookList() {
+                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
+            }
+        };
+        BorrowMenu borrowMenu = new MockBorrowMenu() {
+            @Override
+            public void displayBorrowMenu() {
+                printStream.print("\n\nDisplay Borrow Menu invoked\n\n");
+            }
+        };
+        ReturnMenu returnMenu = new MockReturnMenu() {
+            @Override
+            public void displayReturnMenu() {
+                printStream.print("\n\nDisplay Return Menu invoked\n\n");
+            }
+        };
         MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
 
-        String output = baos.toString();
+        mainMenu.mainMenu();
 
-        //mainMenu.mainMenu();
+        String output = baos.toString();
+        assertEquals("Welcome to the Bangalore Public Library!\n" +
+                "\n" +
+                "We know you'll find a book here that you love!\n" +
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:\n" +
+                "Available Books:\n" +
+                "\n" +
+                "ID:             Title:          Author:         Year Published:\n" +
+                "1               Unit Testing 101 Uncle Bob       1947           \n" +
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:\n" +
+                "\n" +
+                "Display Borrow Menu invoked\n" +
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:\n" +
+                "\n" +
+                "Display Return Menu invoked\n" +
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:\n" +
+                "Thank you for using the Bangalore Public Library!\n", output);
     }
 
     @Test(expected = InputMismatchException.class)
