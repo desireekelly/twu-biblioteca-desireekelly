@@ -4,7 +4,6 @@ import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Library.LibraryImpl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +12,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -113,7 +113,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testMainMenuKeyboardSmash() throws Exception{
+    public void testMainMenuKeyboardSmash() throws Exception {
         String input = "fjkasdjfdlsjfl\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -273,8 +273,8 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testMainMenuOptionsQuitApplication() throws Exception{
-        String input = "4\n";
+    public void testMainMenuOptionsQuitApplication() throws Exception {
+        String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
@@ -283,20 +283,31 @@ public class MainMenuTest {
         ReturnMenu returnMenu = new MockReturnMenu();
         MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
 
-        mainMenu.mainMenu();
+        mainMenu.mainMenuOptions(4);
 
         String output = baos.toString();
-        assertEquals("Welcome to the Bangalore Public Library!\n" +
-                "\n" +
-                "We know you'll find a book here that you love!\n" +
-                "\n" +
-                "Enter one of the following options:\n" +
-                "1 Display the list of available books to borrow\n" +
-                "2 Borrow a book\n" +
-                "3 Return a book\n" +
-                "4 Exit\n" +
-                "Enter your option:\n" +
+        assertEquals("\n" +
                 "Thank you for using the Bangalore Public Library!\n", output);
+
+    }
+
+    @Test
+    public void testMainMenuOptionsDefaultCase() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenu borrowMenu = new MockBorrowMenu();
+        ReturnMenu returnMenu = new MockReturnMenu();
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+
+        mainMenu.mainMenuOptions(5);
+
+        String output = baos.toString();
+        assertEquals("\n" +
+                "Incorrect option, please try again.\n" +
+                "\n", output);
 
     }
 
@@ -330,6 +341,7 @@ public class MainMenuTest {
 
     static class MockBorrowMenu implements BorrowMenu {
         public boolean displayBorrowMenuCalled = false;
+
         @Override
         public void displayBorrowMenu() {
             displayBorrowMenuCalled = true;
@@ -338,6 +350,7 @@ public class MainMenuTest {
 
     static class MockReturnMenu implements ReturnMenu {
         public boolean displayReturnMenuCalled = false;
+
         @Override
         public void displayReturnMenu() {
             displayReturnMenuCalled = true;

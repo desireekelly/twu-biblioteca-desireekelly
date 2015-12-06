@@ -38,6 +38,7 @@ public class BookTest {
 
     @Test
     public void testIfTwoBooksAreTheSame() throws Exception {
+        assertFalse(BOOK_1.equals("Java 101, Joe Bloggs, 1990"));
         assertTrue(BOOK_1.equals(BOOK_1));
         assertFalse(BOOK_1.equals(BOOK_2));
     }
