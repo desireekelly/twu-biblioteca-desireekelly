@@ -42,12 +42,18 @@ public class MainMenu {
     public void mainMenu() {
 
         outputStream.print(Messages.welcomeMessage());
+        outputStream.print(Messages.mainMenuMessage());
+        outputStream.print(Messages.optionMessage());
 
-        while (!exit) {
+        while (!exit && input.hasNextLine()) {
             try {
-                outputStream.print(Messages.mainMenuMessage());
-                outputStream.print(Messages.optionMessage());
-                mainMenuOptions(input.nextInt());
+                    mainMenuOptions(input.nextInt());
+                if(exit == true){
+                    break;
+                }
+                    outputStream.print(Messages.mainMenuMessage());
+                    outputStream.print(Messages.optionMessage());
+
             } catch (InputMismatchException e) {
                 outputStream.print(Messages.incorrectInputMessage());
                 input.nextLine();
