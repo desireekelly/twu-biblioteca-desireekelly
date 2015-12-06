@@ -14,7 +14,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = new LibraryImpl();
-        BorrowMenu borrowMenu = new BorrowMenuImpl(library);
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library, System.in, System.out);
         ReturnMenu returnMenu = new ReturnMenuImpl(library);
         MainMenu launch = new MainMenu(library, System.in, System.out, borrowMenu, returnMenu);
         launch.mainMenu();

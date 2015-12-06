@@ -64,7 +64,7 @@ public class MainMenu {
     /**
      * Dispatch to available books, borrow, return or exit.
      *
-     * @param option The option entered on the main menu.
+     * @param option The option entered on the main menu.-
      */
     /* package */ void mainMenuOptions(int option) {
         switch (option) {

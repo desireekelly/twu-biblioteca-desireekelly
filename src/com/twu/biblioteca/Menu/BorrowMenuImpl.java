@@ -6,6 +6,8 @@ import com.twu.biblioteca.Library.Library;
 import com.twu.biblioteca.Utilities.Messages;
 import com.twu.biblioteca.Utilities.Utilities;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,14 +20,16 @@ import java.util.Scanner;
 public class BorrowMenuImpl implements BorrowMenu {
 
     private Scanner input;
+    private PrintStream outputStream;
     private Library library;
 
     /**
      * Construct a borrow menu with access to the Library.
      */
-    public BorrowMenuImpl(Library library) {
+    public BorrowMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;
-        input = new Scanner(System.in);
+        this.input = new Scanner(inputStream);
+        this.outputStream = outputStream;
     }
 
     /**
@@ -34,13 +38,13 @@ public class BorrowMenuImpl implements BorrowMenu {
     @Override
     public void displayBorrowMenu() {
         try {
-            System.out.print(Messages.borrowMessage());
-            System.out.print(Messages.bookListingMessage());
-            System.out.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
-            System.out.print(Messages.optionMessage());
+            outputStream.print(Messages.borrowMessage());
+            outputStream.print(Messages.bookListingMessage());
+            outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
+            outputStream.print(Messages.optionMessage());
             borrowMenuOptions(input.nextInt(10));
         } catch (InputMismatchException e) {
-            System.out.print(Messages.incorrectInputMessage());
+            outputStream.print(Messages.incorrectInputMessage());
             input.nextLine();
         }
     }
@@ -50,21 +54,21 @@ public class BorrowMenuImpl implements BorrowMenu {
      *
      * @param option The option entered on the return menu.
      */
-    private void borrowMenuOptions(int option) {
+    /* package */ void borrowMenuOptions(int option) {
         if (option == 0) {
-            System.out.print("\n");
+            outputStream.print("\n");
             return;
         }
         if (option > 0 && option <= library.getAvailableBooks().size()) {
             try {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
-                System.out.println(Messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
+                outputStream.println(Messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
             } catch (BookNotBorrowable e) {
-                System.out.println("\n" + e.getMessage() + "\n");
+                outputStream.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            System.out.println(Messages.incorrectInputMessage());
+            outputStream.println(Messages.incorrectInputMessage());
         }
     }
 }
