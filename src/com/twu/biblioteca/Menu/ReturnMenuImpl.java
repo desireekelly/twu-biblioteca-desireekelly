@@ -22,6 +22,7 @@ public class ReturnMenuImpl implements ReturnMenu {
     private Library library;
     private Scanner input;
     private PrintStream outputStream;
+    private boolean exit;
 
     /**
      * Construct a return menu with access to the Library, input streams and output streams.
@@ -30,6 +31,7 @@ public class ReturnMenuImpl implements ReturnMenu {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
+        exit = false;
     }
 
     /**
@@ -37,16 +39,22 @@ public class ReturnMenuImpl implements ReturnMenu {
      */
     @Override
     public void displayReturnMenu() {
-        try {
-            outputStream.print(Messages.returnMessage());
-            outputStream.printf(Messages.bookListingMessage());
-            outputStream.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
-            outputStream.print(Messages.optionMessage());
-            returnMenuOptions(input.nextInt(10));
-        } catch (InputMismatchException e) {
-            outputStream.print(Messages.incorrectInputMessage());
-            input.nextLine();
-        }
+        outputStream.print(Messages.returnMessage());
+        outputStream.printf(Messages.bookListingMessage());
+        outputStream.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
+        outputStream.print(Messages.optionMessage());
+        do {
+            try {
+                if(input.hasNextLine()) {
+                    returnMenuOptions(input.nextInt(10));
+                }else {
+                    exit = true;
+                }
+            } catch (InputMismatchException e) {
+                outputStream.print(Messages.incorrectInputMessage());
+                input.nextLine();
+            }
+        }while(!exit);
     }
 
     /**
@@ -57,6 +65,7 @@ public class ReturnMenuImpl implements ReturnMenu {
     /* package */ void returnMenuOptions(int option) {
         if (option == 0) {
             outputStream.print("\n");
+            exit = true;
             return;
         }
         if (option > 0 && option <= library.getBorrowedBooks().size()) {
@@ -64,6 +73,7 @@ public class ReturnMenuImpl implements ReturnMenu {
                 Book bookToReturn = library.getBorrowedBooks().get(option - 1);
                 library.returnBook(bookToReturn);
                 outputStream.println(Messages.returnThankYouMessage() + bookToReturn.getTitle().toString() + "!\n");
+                exit = true;
             } catch (BookNotReturnable e) {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
