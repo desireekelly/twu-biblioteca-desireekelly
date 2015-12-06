@@ -139,7 +139,6 @@ public class BorrowMenuTest {
 
         assertEquals("\n" +
                 "Incorrect option, please try again.\n" +
-                "\n" +
                 "\n", output);
     }
 

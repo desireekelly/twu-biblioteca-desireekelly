@@ -80,7 +80,7 @@ public class ReturnMenuImpl implements ReturnMenu {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            outputStream.println(Messages.incorrectInputMessage());
+            outputStream.print(Messages.incorrectInputMessage());
             exit = true;
         }
     }
