@@ -25,7 +25,7 @@ public class MainMenu {
     private boolean exit;
 
     /**
-     * Construct a main menu with access to the Library.
+     * Construct a main menu with access to the Library, input streams, output streams, borrow menu and return menu.
      */
     public MainMenu(Library library, InputStream inputStream, PrintStream outputStream, BorrowMenu borrowMenu, ReturnMenu returnMenu) {
         this.library = library;

@@ -24,7 +24,7 @@ public class BorrowMenuImpl implements BorrowMenu {
     private Library library;
 
     /**
-     * Construct a borrow menu with access to the Library.
+     * Construct a borrow menu with access to the Library, input streams and output streams.
      */
     public BorrowMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;
@@ -52,7 +52,7 @@ public class BorrowMenuImpl implements BorrowMenu {
     /**
      * Dispatch to borrow a book.
      *
-     * @param option The option entered on the return menu.
+     * @param option The option entered on the borrow menu.
      */
     /* package */ void borrowMenuOptions(int option) {
         if (option == 0) {

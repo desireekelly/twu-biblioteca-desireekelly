@@ -24,7 +24,7 @@ public class ReturnMenuImpl implements ReturnMenu {
     private PrintStream outputStream;
 
     /**
-     * Construct a return menu with access to the Library.
+     * Construct a return menu with access to the Library, input streams and output streams.
      */
     public ReturnMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;
