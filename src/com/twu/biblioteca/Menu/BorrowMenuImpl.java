@@ -22,6 +22,7 @@ public class BorrowMenuImpl implements BorrowMenu {
     private Scanner input;
     private PrintStream outputStream;
     private Library library;
+    private boolean exit;
 
     /**
      * Construct a borrow menu with access to the Library, input streams and output streams.
@@ -30,6 +31,7 @@ public class BorrowMenuImpl implements BorrowMenu {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
+        exit = false;
     }
 
     /**
@@ -37,16 +39,22 @@ public class BorrowMenuImpl implements BorrowMenu {
      */
     @Override
     public void displayBorrowMenu() {
-        try {
-            outputStream.print(Messages.borrowMessage());
-            outputStream.print(Messages.bookListingMessage());
-            outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
-            outputStream.print(Messages.optionMessage());
-            borrowMenuOptions(input.nextInt(10));
-        } catch (InputMismatchException e) {
-            outputStream.print(Messages.incorrectInputMessage());
-            input.nextLine();
-        }
+        outputStream.print(Messages.borrowMessage());
+        outputStream.print(Messages.bookListingMessage());
+        outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
+        outputStream.print(Messages.optionMessage());
+        do {
+            try {
+                if(input.hasNextLine()){
+                    borrowMenuOptions(input.nextInt(10));
+                } else {
+                    exit = true;
+                }
+            } catch (InputMismatchException e) {
+                outputStream.print(Messages.incorrectInputMessage());
+                input.nextLine();
+            }
+        } while (!exit);
     }
 
     /**
@@ -57,6 +65,7 @@ public class BorrowMenuImpl implements BorrowMenu {
     /* package */ void borrowMenuOptions(int option) {
         if (option == 0) {
             outputStream.print("\n");
+            exit = true;
             return;
         }
         if (option > 0 && option <= library.getAvailableBooks().size()) {
@@ -64,6 +73,7 @@ public class BorrowMenuImpl implements BorrowMenu {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
                 outputStream.println(Messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
+                exit = true;
             } catch (BookNotBorrowable e) {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
