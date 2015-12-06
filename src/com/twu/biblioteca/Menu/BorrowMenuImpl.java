@@ -40,7 +40,7 @@ public class BorrowMenuImpl implements BorrowMenu {
             System.out.print(Messages.optionMessage());
             borrowMenuOptions(input.nextInt(10));
         } catch (InputMismatchException e) {
-            System.out.println(Messages.incorrectInputMessage());
+            System.out.print(Messages.incorrectInputMessage());
             input.nextLine();
         }
     }
