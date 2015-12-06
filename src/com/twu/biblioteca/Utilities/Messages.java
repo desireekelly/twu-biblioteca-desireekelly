@@ -59,4 +59,14 @@ public class Messages {
         String borrowThankYouMessage = "\nThank you! Enjoy reading ";
         return borrowThankYouMessage;
     }
+
+    public static String returnMessage(){
+        String returnMessage = "\nSelect a book to return by entering the ID number or enter 0 to go back to the main menu:\n";
+        return returnMessage;
+    }
+
+    public static String returnThankYouMessage() {
+        String returnThankYouMessage = "\nThank you for returning ";
+        return returnThankYouMessage;
+    }
 }

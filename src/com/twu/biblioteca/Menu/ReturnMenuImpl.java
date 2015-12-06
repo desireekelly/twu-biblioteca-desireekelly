@@ -3,6 +3,7 @@ package com.twu.biblioteca.Menu;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Library.Library;
+import com.twu.biblioteca.Utilities.Messages;
 import com.twu.biblioteca.Utilities.Utilities;
 
 import java.io.InputStream;
@@ -37,13 +38,13 @@ public class ReturnMenuImpl implements ReturnMenu {
     @Override
     public void displayReturnMenu() {
         try {
-            outputStream.println("\nSelect a book to return by entering the ID number or enter 0 to go back to the main menu:\n");
-            outputStream.printf("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
+            outputStream.print(Messages.returnMessage());
+            outputStream.printf(Messages.bookListingMessage());
             outputStream.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
-            outputStream.print("Enter your option:");
+            outputStream.print(Messages.optionMessage());
             returnMenuOptions(input.nextInt(10));
         } catch (InputMismatchException e) {
-            outputStream.println("\nIncorrect option, please try again.\n");
+            outputStream.print(Messages.incorrectInputMessage());
             input.nextLine();
         }
     }
@@ -62,12 +63,12 @@ public class ReturnMenuImpl implements ReturnMenu {
             try {
                 Book bookToReturn = library.getBorrowedBooks().get(option - 1);
                 library.returnBook(bookToReturn);
-                outputStream.println("\nThank you for returning " + bookToReturn.getTitle().toString() + "!\n");
+                outputStream.println(Messages.returnThankYouMessage() + bookToReturn.getTitle().toString() + "!\n");
             } catch (BookNotReturnable e) {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            outputStream.println("\nIncorrect option, please try again.\n");
+            outputStream.println(Messages.incorrectInputMessage());
         }
     }
 }
