@@ -304,7 +304,6 @@ public class MainMenuTest {
                 "\n", output);
     }
 
-
     static class MockLibrary implements Library {
         @Override
         public List<Book> getAvailableBooks() {

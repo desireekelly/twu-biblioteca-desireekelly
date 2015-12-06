@@ -33,7 +33,6 @@ public class BorrowMenuTest {
 
     @Test
     public void testDisplayBorrowMenu() throws Exception {
-
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -86,8 +85,7 @@ public class BorrowMenuTest {
     }
 
     @Test
-    public void testBorrowMenuOptions() throws Exception {
-
+    public void testBorrowMenuOptionsBorrowBook() throws Exception {
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -108,6 +106,22 @@ public class BorrowMenuTest {
         assertEquals("\n" +
                 "Thank you! Enjoy reading Unit Testing 101!\n" +
                 "\n", output);
+    }
+
+    @Test
+    public void testBorrowMenuOptionsExit() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+
+        borrowMenu.borrowMenuOptions(0);
+
+        String output = baos.toString();
+
+        assertEquals("\n", output);
     }
 
     static class MockLibrary implements Library {
