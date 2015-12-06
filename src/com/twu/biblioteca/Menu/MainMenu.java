@@ -42,23 +42,23 @@ public class MainMenu {
     public void mainMenu() {
 
         outputStream.print(Messages.welcomeMessage());
-        outputStream.print(Messages.mainMenuMessage());
-        outputStream.print(Messages.optionMessage());
 
-        while (!exit && input.hasNextLine()) {
+        do {
             try {
+                outputStream.print(Messages.mainMenuMessage());
+                outputStream.print(Messages.optionMessage());
+                if (input.hasNextLine()) {
                     mainMenuOptions(input.nextInt());
-                if(exit == true){
-                    break;
+                } else {
+                    exit = true;
                 }
-                    outputStream.print(Messages.mainMenuMessage());
-                    outputStream.print(Messages.optionMessage());
-
             } catch (InputMismatchException e) {
                 outputStream.print(Messages.incorrectInputMessage());
                 input.nextLine();
             }
-        }
+
+        } while (!exit);
+
     }
 
     /**

@@ -33,7 +33,7 @@ public class MainMenuTest {
 
     @Test
     public void testMainMenu() throws Exception {
-        String input = "1\n2\n3\n" + "fjkasdjfdlsjfl\n"+ "4\n";
+        String input = "1\n2\n3\n4\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(baos);
@@ -109,9 +109,6 @@ public class MainMenuTest {
                 "3 Return a book\n" +
                 "4 Exit\n" +
                 "Enter your option:\n" +
-                "Incorrect option, please try again.\n" +
-                "\n" +
-                "\n" +
                 "Thank you for using the Bangalore Public Library!\n", output);
     }
 
@@ -165,7 +162,13 @@ public class MainMenuTest {
                 "4 Exit\n" +
                 "Enter your option:\n" +
                 "Incorrect option, please try again.\n" +
-                "\n", output);
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:", output);
     }
 
     @Test
