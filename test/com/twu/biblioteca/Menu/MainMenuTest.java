@@ -273,7 +273,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testMainMenuOptionsQuitApplication() throws Exception {
+    public void testMainMenuOptionsCase4QuitApplication() throws Exception {
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
