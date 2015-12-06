@@ -6,7 +6,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by desiree on 7/12/2015.
+ * Tests for the ReturnMenu class.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
+ * @see ReturnMenu
  */
 public class ReturnMenuTest {
 
