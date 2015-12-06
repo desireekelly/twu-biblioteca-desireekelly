@@ -32,12 +32,14 @@ public class BorrowMenuTest {
     }
 
     @Test
-    public void testBorrowMenuKeyboardSmash() throws Exception {
-        String input = "fjkasdjfdlsjfl\n";
+    public void testDisplayBorrowMenu() throws Exception {
+/*
+        String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+
         BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
 
         borrowMenu.displayBorrowMenu();
@@ -49,6 +51,39 @@ public class BorrowMenuTest {
                 "Available Books:\n" +
                 "\n" +
                 "ID:             Title:          Author:         Year Published:\n" +
+                "1               Unit Testing 101 Uncle Bob       1947           \n" +
+                "\n" +
+                "Enter your option:\n", output);
+*/
+
+
+
+    }
+
+    @Test
+    public void testBorrowMenuKeyboardSmash() throws Exception {
+        String input = "fjkasdjfdlsjfl\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary() {
+            @Override
+            public List<Book> getAvailableBooks() {
+                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
+            }
+        };
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+
+        borrowMenu.displayBorrowMenu();
+
+        String output = baos.toString();
+        assertEquals("\n" +
+                "Select a book to borrow by entering the ID number or enter 0 to go back to the main menu:\n" +
+                "\n" +
+                "Available Books:\n" +
+                "\n" +
+                "ID:             Title:          Author:         Year Published:\n" +
+                "1               Unit Testing 101 Uncle Bob       1947           \n" +
                 "\n" +
                 "Enter your option:\n" +
                 "Incorrect option, please try again.\n" +
