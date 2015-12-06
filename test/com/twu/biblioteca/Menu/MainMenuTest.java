@@ -173,7 +173,6 @@ public class MainMenuTest {
                         "1               Unit Testing 101 Uncle Bob       1947           \n" +
                         "\n",
                 output);
-
     }
 
     @Test
@@ -196,7 +195,6 @@ public class MainMenuTest {
                         "\n",
                 output);
         assertFalse(borrowMenu.displayBorrowMenuCalled);
-
     }
 
     @Test
@@ -221,7 +219,6 @@ public class MainMenuTest {
         String output = baos.toString();
         assertEquals("", output);
         assertTrue(borrowMenu.displayBorrowMenuCalled);
-
     }
 
     @Test
@@ -244,7 +241,6 @@ public class MainMenuTest {
                         "\n",
                 output);
         assertFalse(returnMenu.displayReturnMenuCalled);
-
     }
 
     @Test
@@ -269,7 +265,6 @@ public class MainMenuTest {
         String output = baos.toString();
         assertEquals("", output);
         assertTrue(returnMenu.displayReturnMenuCalled);
-
     }
 
     @Test
@@ -288,7 +283,6 @@ public class MainMenuTest {
         String output = baos.toString();
         assertEquals("\n" +
                 "Thank you for using the Bangalore Public Library!\n", output);
-
     }
 
     @Test
@@ -308,7 +302,6 @@ public class MainMenuTest {
         assertEquals("\n" +
                 "Incorrect option, please try again.\n" +
                 "\n", output);
-
     }
 
 
@@ -357,5 +350,4 @@ public class MainMenuTest {
 
         }
     }
-
 }

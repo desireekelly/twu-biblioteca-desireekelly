@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the BorrowMenu class.
@@ -33,7 +33,7 @@ public class BorrowMenuTest {
 
     @Test
     public void testDisplayBorrowMenu() throws Exception {
-/*
+
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -51,13 +51,8 @@ public class BorrowMenuTest {
                 "Available Books:\n" +
                 "\n" +
                 "ID:             Title:          Author:         Year Published:\n" +
-                "1               Unit Testing 101 Uncle Bob       1947           \n" +
                 "\n" +
-                "Enter your option:\n", output);
-*/
-
-
-
+                "Enter your option:", output);
     }
 
     @Test
@@ -88,7 +83,6 @@ public class BorrowMenuTest {
                 "Enter your option:\n" +
                 "Incorrect option, please try again.\n" +
                 "\n", output);
-
     }
 
     @Test
@@ -114,8 +108,6 @@ public class BorrowMenuTest {
         assertEquals("\n" +
                 "Thank you! Enjoy reading Unit Testing 101!\n" +
                 "\n", output);
-
-
     }
 
     static class MockLibrary implements Library {
@@ -144,6 +136,4 @@ public class BorrowMenuTest {
 
         }
     }
-
-
 }
