@@ -1,7 +1,11 @@
 package com.twu.biblioteca.Menu;
 
 /**
- * Created by desiree on 5/12/2015.
+ * ReturnMenu interface.
+ * ReturnMenu is responsible for handling the return menu navigation.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public interface ReturnMenu {
     /**

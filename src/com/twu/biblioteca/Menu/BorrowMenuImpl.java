@@ -12,6 +12,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * BorrowMenu implementation.
  * BorrowMenu is responsible for handling the borrow menu navigation.
  *
  * @author Desiree Kelly
@@ -53,6 +54,7 @@ public class BorrowMenuImpl implements BorrowMenu {
             } catch (InputMismatchException e) {
                 outputStream.print(Messages.incorrectInputMessage());
                 input.nextLine();
+                exit = true;
             }
         } while (!exit);
     }
@@ -79,6 +81,7 @@ public class BorrowMenuImpl implements BorrowMenu {
             }
         } else {
             outputStream.println(Messages.incorrectInputMessage());
+            exit = true;
         }
     }
 }

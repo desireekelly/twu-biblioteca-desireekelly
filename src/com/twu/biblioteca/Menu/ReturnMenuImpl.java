@@ -12,6 +12,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * ReturnMenu implementation.
  * ReturnMenu is responsible for handling the return menu navigation.
  *
  * @author Desiree Kelly
@@ -53,6 +54,7 @@ public class ReturnMenuImpl implements ReturnMenu {
             } catch (InputMismatchException e) {
                 outputStream.print(Messages.incorrectInputMessage());
                 input.nextLine();
+                exit = true;
             }
         }while(!exit);
     }
@@ -79,6 +81,7 @@ public class ReturnMenuImpl implements ReturnMenu {
             }
         } else {
             outputStream.println(Messages.incorrectInputMessage());
+            exit = true;
         }
     }
 }

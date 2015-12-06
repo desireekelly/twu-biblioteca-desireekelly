@@ -7,7 +7,11 @@ import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import java.util.List;
 
 /**
- * Created by desiree on 5/12/2015.
+ * Library interface.
+ * Library is responsible for holding the available and borrowed books.
+ *
+ * @author Desiree Kelly
+ * @version 1.0
  */
 public interface Library {
     /**

@@ -124,6 +124,25 @@ public class BorrowMenuTest {
         assertEquals("\n", output);
     }
 
+    @Test
+    public void testBorrowMenuOptionsIncorrectInput() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+
+        borrowMenu.borrowMenuOptions(5);
+
+        String output = baos.toString();
+
+        assertEquals("\n" +
+                "Incorrect option, please try again.\n" +
+                "\n" +
+                "\n", output);
+    }
+
     static class MockLibrary implements Library {
         @Override
         public List<Book> getAvailableBooks() {
