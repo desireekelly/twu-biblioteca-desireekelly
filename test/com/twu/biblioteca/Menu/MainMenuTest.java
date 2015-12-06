@@ -113,39 +113,14 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testKeyboardSmash() throws Exception{
+    public void testMainMenuKeyboardSmash() throws Exception{
         String input = "fjkasdjfdlsjfl\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        final PrintStream printStream = new PrintStream(baos);
-        Library library = new MockLibrary() {
-            @Override
-            public List<Book> getAvailableBooks() {
-                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
-            }
-
-            @Override
-            public List<Book> getBorrowedBooks() {
-                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
-            }
-
-            @Override
-            public List<Book> getBookList() {
-                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
-            }
-        };
-        BorrowMenu borrowMenu = new MockBorrowMenu() {
-            @Override
-            public void displayBorrowMenu() {
-                printStream.print("\n\nDisplay Borrow Menu invoked\n\n");
-            }
-        };
-        ReturnMenu returnMenu = new MockReturnMenu() {
-            @Override
-            public void displayReturnMenu() {
-                printStream.print("\n\nDisplay Return Menu invoked\n\n");
-            }
-        };
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenu borrowMenu = new MockBorrowMenu();
+        ReturnMenu returnMenu = new MockReturnMenu();
         MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
 
         mainMenu.mainMenu();
@@ -202,7 +177,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testMainMenuOptionsCase2EmptyLibrary() throws Exception {
+    public void testMainMenuOptionsCase2BooksUnavailableToBorrow() throws Exception {
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -225,7 +200,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void testMainMenuOptionsCase2PopulatedLibrary() throws Exception {
+    public void testMainMenuOptionsCase2BooksAvailableToBorrow() throws Exception {
         String input = "";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -248,6 +223,83 @@ public class MainMenuTest {
         assertTrue(borrowMenu.displayBorrowMenuCalled);
 
     }
+
+    @Test
+    public void testMainMenuOptionsCase3BooksUnavailableToReturn() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenu borrowMenu = new MockBorrowMenu();
+        MockReturnMenu returnMenu = new MockReturnMenu();
+
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+
+        mainMenu.mainMenuOptions(3);
+
+        String output = baos.toString();
+        assertEquals("\n" +
+                        "Sorry, there are no available books to return\n" +
+                        "\n",
+                output);
+        assertFalse(returnMenu.displayReturnMenuCalled);
+
+    }
+
+    @Test
+    public void testMainMenuOptionsCase3BooksAvailableToReturn() throws Exception {
+        String input = "";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary() {
+            @Override
+            public List<Book> getBorrowedBooks() {
+                return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
+            }
+        };
+        BorrowMenu borrowMenu = new MockBorrowMenu();
+        MockReturnMenu returnMenu = new MockReturnMenu();
+
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+
+        mainMenu.mainMenuOptions(3);
+
+        String output = baos.toString();
+        assertEquals("", output);
+        assertTrue(returnMenu.displayReturnMenuCalled);
+
+    }
+
+    @Test
+    public void testMainMenuOptionsQuitApplication() throws Exception{
+        String input = "4\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+        Library library = new MockLibrary();
+        BorrowMenu borrowMenu = new MockBorrowMenu();
+        ReturnMenu returnMenu = new MockReturnMenu();
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+
+        mainMenu.mainMenu();
+
+        String output = baos.toString();
+        assertEquals("Welcome to the Bangalore Public Library!\n" +
+                "\n" +
+                "We know you'll find a book here that you love!\n" +
+                "\n" +
+                "Enter one of the following options:\n" +
+                "1 Display the list of available books to borrow\n" +
+                "2 Borrow a book\n" +
+                "3 Return a book\n" +
+                "4 Exit\n" +
+                "Enter your option:\n" +
+                "Thank you for using the Bangalore Public Library!\n", output);
+
+    }
+
 
     static class MockLibrary implements Library {
         @Override
