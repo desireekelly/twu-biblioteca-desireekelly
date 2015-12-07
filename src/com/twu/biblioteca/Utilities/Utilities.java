@@ -1,6 +1,8 @@
 package com.twu.biblioteca.Utilities;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Customer.Customer;
+import com.twu.biblioteca.Movie.Movie;
 
 import java.util.List;
 
@@ -23,8 +25,19 @@ public class Utilities {
 
         for (Book b : bookList) {
             index++;
-            formattedBookList += String.format("%-15s %-15s %-15s %-15s\n", index, b.getTitle(), b.getAuthor(), b.getYearPublished());
+            formattedBookList += String.format("%-15d %-15s %-15s %-15d\n", index, b.getTitle(), b.getAuthor(), b.getYearPublished());
         }
         return formattedBookList;
+    }
+
+    public static String displayFormattedMovieList(List<Movie> movieList){
+        String formattedMovieList = "";
+        int index = 0;
+
+        for (Movie m : movieList) {
+            index++;
+            formattedMovieList += String.format("%-20d %-20s %-20d %-35s %-20d\n", index, m.getName(), m.getYear(), m.getDirector(), m.getMovieRating());
+        }
+        return formattedMovieList;
     }
 }

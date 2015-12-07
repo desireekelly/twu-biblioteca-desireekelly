@@ -43,7 +43,7 @@ public class Customer {
     }
 
     public String toString() {
-        return this.name + ", " + this.emailAddress + ", " + this.phoneNumber + ", " + this.libraryNumber + ", " + this.password;
+        return this.name + ", " + this.emailAddress + ", " + this.phoneNumber;
     }
 
     @Override

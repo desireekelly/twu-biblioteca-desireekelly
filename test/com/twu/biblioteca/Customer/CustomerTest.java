@@ -44,13 +44,15 @@ public class CustomerTest {
 
     @Test
     public void testToString() throws Exception {
-        assertEquals(CUSTOMER_1.toString(), "Joe Bloggs, joebloggs@joebloggs.com, 0400 000 000, 123-4567, f8kf93jd");
+        assertEquals(CUSTOMER_1.toString(), "Joe Bloggs, joebloggs@joebloggs.com, 0400 000 000");
     }
 
     @Test
-    public void testIfTwoMoviesAreTheSame() throws Exception {
+    public void testIfTwoCustomersAreTheSame() throws Exception {
         assertFalse(CUSTOMER_1.equals("Joe Bloggs, joebloggs@joebloggs.com, 0400 000 000, 123-4567, f8kf93jd"));
         assertTrue(CUSTOMER_1.equals(CUSTOMER_1));
         assertFalse(CUSTOMER_1.equals(CUSTOMER_2));
     }
+
+
 }

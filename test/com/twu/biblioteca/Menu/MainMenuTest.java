@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Menu;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Customer.Customer;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
@@ -349,6 +350,11 @@ public class MainMenuTest {
 
         @Override
         public List<Movie> getBorrowedMovies() {
+            return Collections.emptyList();
+        }
+
+        @Override
+        public List<Customer> getCustomerList(){
             return Collections.emptyList();
         }
     }

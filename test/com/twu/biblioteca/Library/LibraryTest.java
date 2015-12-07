@@ -33,8 +33,8 @@ public class LibraryTest {
     public static final Movie MOVIE_4 = new Movie("The Bourne Identity", 2002, "Doug Liman", 10);
 
     //Library Customers
-    public static final Customer CUSTOMER_1 = new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4567", "f8kf93jd");
-    public static final Customer CUSTOMER_2 = new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4568", "5jgfdkl5");
+    public static final Customer CUSTOMER_1 = new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4566", "f8kf93jd");
+    public static final Customer CUSTOMER_2 = new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4567", "5jgfdkl5");
     public static final Customer CUSTOMER_3 = new Customer("Bob Smith", "bobsmith@bobsmith.com", "0412 454 565", "123-4568", "4jg84jf8");
     public static final Customer CUSTOMER_4 = new Customer("Jenny Bloggs", "jennybloggs@jennybloggs.com", "0435 567 040", "123-4569", "kb94kfm3");
 
@@ -60,6 +60,14 @@ public class LibraryTest {
         assertEquals(MOVIE_2, library.getMovieList().get(1));
         assertEquals(MOVIE_3, library.getMovieList().get(2));
         assertEquals(MOVIE_4, library.getMovieList().get(3));
+    }
+
+    @Test
+    public void testCreateCustomerList() throws Exception{
+        assertEquals(CUSTOMER_1, library.getCustomerList().get(0));
+        assertEquals(CUSTOMER_2, library.getCustomerList().get(1));
+        assertEquals(CUSTOMER_3, library.getCustomerList().get(2));
+        assertEquals(CUSTOMER_4, library.getCustomerList().get(3));
     }
 
     @Test

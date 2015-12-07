@@ -30,6 +30,7 @@ public class LibraryImpl implements Library {
     public LibraryImpl() {
         this.createBookList();
         this.createMovieList();
+        this.createCustomerList();
     }
 
     private void createBookList() {
@@ -122,17 +123,6 @@ public class LibraryImpl implements Library {
     }
 
     @Override
-    public void checkoutMovie(Movie movie) throws MovieNotBorrowable{
-        if (borrowedMovies.contains(movie))
-            throw new MovieNotBorrowable("Movie is not available");
-        borrowedMovies.add(movie);
-    }
-
-    public List<Movie> getMovieList() {
-        return Collections.unmodifiableList(movies);
-    }
-
-    @Override
     public List<Movie> getAvailableMovies() {
         List<Movie> results = new ArrayList<Movie>(movies.size());
         for (Movie m : movies) {
@@ -152,5 +142,21 @@ public class LibraryImpl implements Library {
             }
         }
         return results;
+    }
+
+    public List<Movie> getMovieList() {
+        return Collections.unmodifiableList(movies);
+    }
+
+    @Override
+    public void checkoutMovie(Movie movie) throws MovieNotBorrowable{
+        if (borrowedMovies.contains(movie))
+            throw new MovieNotBorrowable("Movie is not available");
+        borrowedMovies.add(movie);
+    }
+
+    @Override
+    public List<Customer> getCustomerList() {
+        return Collections.unmodifiableList(customers);
     }
 }

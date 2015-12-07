@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Library;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Customer.Customer;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
@@ -53,11 +54,13 @@ public interface Library {
      */
     void returnBook(Book book) throws BookNotReturnable;
 
-    void checkoutMovie(Movie movie) throws MovieNotBorrowable;
-
-    List<Movie> getMovieList();
-
     List<Movie> getAvailableMovies();
 
     List<Movie> getBorrowedMovies();
+
+    List<Movie> getMovieList();
+
+    void checkoutMovie(Movie movie) throws MovieNotBorrowable;
+
+    List<Customer> getCustomerList();
 }
