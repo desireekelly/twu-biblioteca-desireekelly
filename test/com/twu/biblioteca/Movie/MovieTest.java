@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class MovieTest {
 
     public static final Movie MOVIE_1 = new Movie("The Matrix", 1999, "The Wachowski Brothers", 10);
-    public static final Movie MOVIE_2 = new Movie("Inception", 2010, "TChristopher Nolan", 8);
+    public static final Movie MOVIE_2 = new Movie("Inception", 2010, "Christopher Nolan", 8);
 
     @Test
     public void testGetName() throws Exception {

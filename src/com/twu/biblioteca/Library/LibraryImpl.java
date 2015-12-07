@@ -3,6 +3,8 @@ package com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
+import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.Movie.Movie;
 
 import java.util.*;
 
@@ -17,12 +19,15 @@ public class LibraryImpl implements Library {
 
     private List<Book> books = new ArrayList<Book>();
     private Set<Book> borrowedBooks = new HashSet<Book>();
+    private List<Movie> movies = new ArrayList<Movie>();
+    private Set<Movie> borrowedMovies = new HashSet<Movie>();
 
     /**
      * Construct a library with a fixed set of books.
      */
     public LibraryImpl() {
         this.createBookList();
+        this.createMovieList();
     }
 
     private void createBookList() {
@@ -30,6 +35,13 @@ public class LibraryImpl implements Library {
         books.add(new Book("PHP 101", "Mary Jane", 2005));
         books.add(new Book("C# 101", "John Smith", 2010));
         books.add(new Book("C++ 101", "Joyce Merry", 2001));
+    }
+
+    private void createMovieList(){
+        movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", 10));
+        movies.add(new Movie("Inception", 2010, "Christopher Nolan", 8));
+        movies.add(new Movie("Divergent", 2014, "Neil Burger", -1));
+        movies.add(new Movie("The Bourne Identity", 2002, "Doug Liman", 10));
     }
 
     /**
@@ -98,5 +110,38 @@ public class LibraryImpl implements Library {
         if (!borrowedBooks.contains(book))
             throw new BookNotReturnable("Book is already returned");
         borrowedBooks.remove(book);
+    }
+
+    @Override
+    public void checkoutMovie(Movie movie) throws MovieNotBorrowable{
+        if (borrowedMovies.contains(movie))
+            throw new MovieNotBorrowable("Movie is not available");
+        borrowedMovies.add(movie);
+    }
+
+    public List<Movie> getMovieList() {
+        return Collections.unmodifiableList(movies);
+    }
+
+    @Override
+    public List<Movie> getAvailableMovies() {
+        List<Movie> results = new ArrayList<Movie>(movies.size());
+        for (Movie m : movies) {
+            if (!borrowedMovies.contains(m)) {
+                results.add(m);
+            }
+        }
+        return results;
+    }
+
+    @Override
+    public List<Movie> getBorrowedMovies() {
+        List<Movie> results = new ArrayList<Movie>(movies.size());
+        for (Movie m : movies) {
+            if (borrowedMovies.contains(m)) {
+                results.add(m);
+            }
+        }
+        return results;
     }
 }

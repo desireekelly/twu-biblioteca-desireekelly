@@ -3,6 +3,8 @@ package com.twu.biblioteca.Library;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
+import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.Movie.Movie;
 
 import java.util.List;
 
@@ -50,4 +52,12 @@ public interface Library {
      * @throws BookNotReturnable Thrown if book is not currently checked out.
      */
     void returnBook(Book book) throws BookNotReturnable;
+
+    void checkoutMovie(Movie movie) throws MovieNotBorrowable;
+
+    List<Movie> getMovieList();
+
+    List<Movie> getAvailableMovies();
+
+    List<Movie> getBorrowedMovies();
 }

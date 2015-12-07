@@ -3,7 +3,9 @@ package com.twu.biblioteca.Menu;
 import com.twu.biblioteca.Book.Book;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
+import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.Library.Library;
+import com.twu.biblioteca.Movie.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -328,6 +330,26 @@ public class MainMenuTest {
         @Override
         public void returnBook(Book book) throws BookNotReturnable {
 
+        }
+
+        @Override
+        public void checkoutMovie(Movie movie) throws MovieNotBorrowable {
+
+        }
+
+        @Override
+        public List<Movie> getMovieList(){
+            return Collections.emptyList();
+        }
+
+        @Override
+        public List<Movie> getAvailableMovies(){
+            return Collections.emptyList();
+        }
+
+        @Override
+        public List<Movie> getBorrowedMovies() {
+            return Collections.emptyList();
         }
     }
 
