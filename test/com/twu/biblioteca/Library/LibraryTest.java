@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Library;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Customer.Customer;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
@@ -30,6 +31,13 @@ public class LibraryTest {
     public static final Movie MOVIE_2 = new Movie("Inception", 2010, "Christopher Nolan", 8);
     public static final Movie MOVIE_3 = new Movie("Divergent", 2014, "Neil Burger", -1);
     public static final Movie MOVIE_4 = new Movie("The Bourne Identity", 2002, "Doug Liman", 10);
+
+    //Library Customers
+    public static final Customer CUSTOMER_1 = new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4567", "f8kf93jd");
+    public static final Customer CUSTOMER_2 = new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4568", "5jgfdkl5");
+    public static final Customer CUSTOMER_3 = new Customer("Bob Smith", "bobsmith@bobsmith.com", "0412 454 565", "123-4568", "4jg84jf8");
+    public static final Customer CUSTOMER_4 = new Customer("Jenny Bloggs", "jennybloggs@jennybloggs.com", "0435 567 040", "123-4569", "kb94kfm3");
+
 
     private Library library;
 

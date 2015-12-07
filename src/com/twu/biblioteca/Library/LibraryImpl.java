@@ -1,6 +1,7 @@
 package com.twu.biblioteca.Library;
 
 import com.twu.biblioteca.Book.Book;
+import com.twu.biblioteca.Customer.Customer;
 import com.twu.biblioteca.Exceptions.BookNotBorrowable;
 import com.twu.biblioteca.Exceptions.BookNotReturnable;
 import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
@@ -21,6 +22,7 @@ public class LibraryImpl implements Library {
     private Set<Book> borrowedBooks = new HashSet<Book>();
     private List<Movie> movies = new ArrayList<Movie>();
     private Set<Movie> borrowedMovies = new HashSet<Movie>();
+    private List<Customer> customers = new ArrayList<Customer>();
 
     /**
      * Construct a library with a fixed set of books.
@@ -42,6 +44,13 @@ public class LibraryImpl implements Library {
         movies.add(new Movie("Inception", 2010, "Christopher Nolan", 8));
         movies.add(new Movie("Divergent", 2014, "Neil Burger", -1));
         movies.add(new Movie("The Bourne Identity", 2002, "Doug Liman", 10));
+    }
+
+    private void createCustomerList(){
+        customers.add(new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4566", "f8kf93jd"));
+        customers.add(new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4567", "5jgfdkl5"));
+        customers.add(new Customer("Bob Smith", "bobsmith@bobsmith.com", "0412 454 565", "123-4568", "4jg84jf8"));
+        customers.add(new Customer("Jenny Bloggs", "jennybloggs@jennybloggs.com", "0435 567 040", "123-4569", "kb94kfm3"));
     }
 
     /**
