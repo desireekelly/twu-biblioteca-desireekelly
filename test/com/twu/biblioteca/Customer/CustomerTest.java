@@ -17,11 +17,6 @@ public class CustomerTest {
     public static final Customer CUSTOMER_1 = new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4567", "f8kf93jd");
     public static final Customer CUSTOMER_2 = new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4568", "5jgfdkl5");
 
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
     @Test
     public void testGetName() throws Exception {
         assertEquals(CUSTOMER_1.getName(), "Joe Bloggs");
