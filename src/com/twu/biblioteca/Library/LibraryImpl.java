@@ -41,10 +41,10 @@ public class LibraryImpl implements Library {
     }
 
     private void createMovieList(){
-        movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", 10));
-        movies.add(new Movie("Inception", 2010, "Christopher Nolan", 8));
-        movies.add(new Movie("Divergent", 2014, "Neil Burger", -1));
-        movies.add(new Movie("The Bourne Identity", 2002, "Doug Liman", 10));
+        movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", "10"));
+        movies.add(new Movie("Inception", 2010, "Christopher Nolan", "8"));
+        movies.add(new Movie("Divergent", 2014, "Neil Burger", "Unrated"));
+        movies.add(new Movie("The Bourne Identity", 2002, "Doug Liman", "10"));
     }
 
     private void createCustomerList(){

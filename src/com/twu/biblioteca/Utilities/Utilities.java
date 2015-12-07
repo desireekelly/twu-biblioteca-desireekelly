@@ -36,7 +36,7 @@ public class Utilities {
 
         for (Movie m : movieList) {
             index++;
-            formattedMovieList += String.format("%-20d %-20s %-20d %-35s %-20d\n", index, m.getName(), m.getYear(), m.getDirector(), m.getMovieRating());
+            formattedMovieList += String.format("%-20d %-20s %-20d %-35s %-20s\n", index, m.getName(), m.getYear(), m.getDirector(), m.getMovieRating());
         }
         return formattedMovieList;
     }

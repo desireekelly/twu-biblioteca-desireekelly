@@ -27,10 +27,10 @@ public class LibraryTest {
     public static final Book BOOK_4 = new Book("C++ 101", "Joyce Merry", 2001);
 
     //Movies in the library
-    public static final Movie MOVIE_1 = new Movie("The Matrix", 1999, "The Wachowski Brothers", 10);
-    public static final Movie MOVIE_2 = new Movie("Inception", 2010, "Christopher Nolan", 8);
-    public static final Movie MOVIE_3 = new Movie("Divergent", 2014, "Neil Burger", -1);
-    public static final Movie MOVIE_4 = new Movie("The Bourne Identity", 2002, "Doug Liman", 10);
+    public static final Movie MOVIE_1 = new Movie("The Matrix", 1999, "The Wachowski Brothers", "10");
+    public static final Movie MOVIE_2 = new Movie("Inception", 2010, "Christopher Nolan", "8");
+    public static final Movie MOVIE_3 = new Movie("Divergent", 2014, "Neil Burger", "Unrated");
+    public static final Movie MOVIE_4 = new Movie("The Bourne Identity", 2002, "Doug Liman", "10");
 
     //Library Customers
     public static final Customer CUSTOMER_1 = new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4566", "f8kf93jd");

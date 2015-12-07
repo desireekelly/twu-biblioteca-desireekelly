@@ -39,8 +39,8 @@ public class UtilitiesTest {
 
     @Test
     public void testDisplayFormattedMovieList() throws Exception {
-        movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", 10));
-        movies.add(new Movie("Inception", 2010, "Christopher Nolan", 8));
+        movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", "10"));
+        movies.add(new Movie("Inception", 2010, "Christopher Nolan", "8"));
         assertEquals("1                    The Matrix           1999                 The Wachowski Brothers              10                  \n" +
                         "2                    Inception            2010                 Christopher Nolan                   8                   \n",
                 Utilities.displayFormattedMovieList(movies).toString());

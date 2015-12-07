@@ -11,9 +11,9 @@ public class Movie {
     private String name;
     private int year;
     private String director;
-    private int movieRating;
+    private String movieRating;
 
-    public Movie(String name, int year, String director, int movieRating) {
+    public Movie(String name, int year, String director, String movieRating) {
         this.name = name;
         this.year = year;
         this.director = director;
@@ -32,7 +32,8 @@ public class Movie {
         return director;
     }
 
-    public int getMovieRating() {
+    public String getMovieRating() {
+
         return movieRating;
     }
 
@@ -51,6 +52,6 @@ public class Movie {
         return this.name.equals(otherMovie.name)
                 && this.year == otherMovie.year
                 && this.director.equals(otherMovie.director)
-                && this.movieRating == otherMovie.movieRating;
+                && this.movieRating.equals(otherMovie.movieRating);
     }
 }
