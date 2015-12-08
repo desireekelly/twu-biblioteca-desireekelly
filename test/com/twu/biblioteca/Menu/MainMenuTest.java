@@ -1,12 +1,12 @@
-package com.twu.biblioteca.Menu;
+package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Customer.Customer;
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
-import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.customer.Customer;
+import com.twu.biblioteca.exceptions.BookNotBorrowable;
+import com.twu.biblioteca.exceptions.BookNotReturnable;
+import com.twu.biblioteca.exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.movie.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,13 +59,13 @@ public class MainMenuTest {
         BorrowMenu borrowMenu = new MockBorrowMenu() {
             @Override
             public void displayBorrowMenu() {
-                printStream.print("\n\nDisplay Borrow Menu invoked\n\n");
+                printStream.print("\n\nDisplay Borrow menu invoked\n\n");
             }
         };
         ReturnMenu returnMenu = new MockReturnMenu() {
             @Override
             public void displayReturnMenu() {
-                printStream.print("\n\nDisplay Return Menu invoked\n\n");
+                printStream.print("\n\nDisplay Return menu invoked\n\n");
             }
         };
         MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
@@ -73,7 +73,7 @@ public class MainMenuTest {
         mainMenu.mainMenu();
 
         String output = baos.toString();
-        assertEquals("Welcome to the Bangalore Public Library!\n" +
+        assertEquals("Welcome to the Bangalore Public library!\n" +
                 "\n" +
                 "We know you'll find a book here that you love!\n" +
                 "\n" +
@@ -95,7 +95,7 @@ public class MainMenuTest {
                 "4 Exit\n" +
                 "Enter your option:\n" +
                 "\n" +
-                "Display Borrow Menu invoked\n" +
+                "Display Borrow menu invoked\n" +
                 "\n" +
                 "Enter one of the following options:\n" +
                 "1 Display the list of available books to borrow\n" +
@@ -104,7 +104,7 @@ public class MainMenuTest {
                 "4 Exit\n" +
                 "Enter your option:\n" +
                 "\n" +
-                "Display Return Menu invoked\n" +
+                "Display Return menu invoked\n" +
                 "\n" +
                 "Enter one of the following options:\n" +
                 "1 Display the list of available books to borrow\n" +
@@ -112,7 +112,7 @@ public class MainMenuTest {
                 "3 Return a book\n" +
                 "4 Exit\n" +
                 "Enter your option:\n" +
-                "Thank you for using the Bangalore Public Library!\n", output);
+                "Thank you for using the Bangalore Public library!\n", output);
     }
 
     @Test
@@ -129,7 +129,7 @@ public class MainMenuTest {
         mainMenu.mainMenu();
 
         String output = baos.toString();
-        assertEquals("Welcome to the Bangalore Public Library!\n" +
+        assertEquals("Welcome to the Bangalore Public library!\n" +
                 "\n" +
                 "We know you'll find a book here that you love!\n" +
                 "\n" +
@@ -285,7 +285,7 @@ public class MainMenuTest {
 
         String output = baos.toString();
         assertEquals("\n" +
-                "Thank you for using the Bangalore Public Library!\n", output);
+                "Thank you for using the Bangalore Public library!\n", output);
     }
 
     @Test

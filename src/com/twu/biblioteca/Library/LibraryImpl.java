@@ -1,17 +1,17 @@
-package com.twu.biblioteca.Library;
+package com.twu.biblioteca.library;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Customer.Customer;
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.customer.Customer;
+import com.twu.biblioteca.exceptions.BookNotBorrowable;
+import com.twu.biblioteca.exceptions.BookNotReturnable;
+import com.twu.biblioteca.exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.movie.Movie;
 
 import java.util.*;
 
 /**
- * Library implementation.
- * Library is responsible for holding the available and borrowed books.
+ * library implementation.
+ * library is responsible for holding the available and borrowed books.
  *
  * @author Desiree Kelly
  * @version 1.0
@@ -105,7 +105,7 @@ public class LibraryImpl implements Library {
     @Override
     public void checkoutBook(Book book) throws BookNotBorrowable {
         if (borrowedBooks.contains(book))
-            throw new BookNotBorrowable("Book is not available");
+            throw new BookNotBorrowable("book is not available");
         borrowedBooks.add(book);
     }
 
@@ -118,7 +118,7 @@ public class LibraryImpl implements Library {
     @Override
     public void returnBook(Book book) throws BookNotReturnable {
         if (!borrowedBooks.contains(book))
-            throw new BookNotReturnable("Book is already returned");
+            throw new BookNotReturnable("book is already returned");
         borrowedBooks.remove(book);
     }
 
@@ -152,7 +152,7 @@ public class LibraryImpl implements Library {
     @Override
     public void checkoutMovie(Movie movie) throws MovieNotBorrowable{
         if (borrowedMovies.contains(movie))
-            throw new MovieNotBorrowable("Movie is not available");
+            throw new MovieNotBorrowable("movie is not available");
         borrowedMovies.add(movie);
     }
 

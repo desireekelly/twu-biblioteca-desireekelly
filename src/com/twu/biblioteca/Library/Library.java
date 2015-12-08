@@ -1,17 +1,17 @@
-package com.twu.biblioteca.Library;
+package com.twu.biblioteca.library;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Customer.Customer;
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.customer.Customer;
+import com.twu.biblioteca.exceptions.BookNotBorrowable;
+import com.twu.biblioteca.exceptions.BookNotReturnable;
+import com.twu.biblioteca.exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.movie.Movie;
 
 import java.util.List;
 
 /**
- * Library interface.
- * Library is responsible for holding the available and borrowed books.
+ * library interface.
+ * library is responsible for holding the available and borrowed books.
  *
  * @author Desiree Kelly
  * @version 1.0

@@ -1,4 +1,4 @@
-package com.twu.biblioteca.Utilities;
+package com.twu.biblioteca.utilities;
 
 /**
  * Messages is responsible for holding all of the messages to display.
@@ -9,7 +9,7 @@ package com.twu.biblioteca.Utilities;
 public class Messages {
 
     public static String welcomeMessage() {
-        String welcomeMessage = "Welcome to the Bangalore Public Library!\n\nWe know you'll find a book here that you love!\n\n";
+        String welcomeMessage = "Welcome to the Bangalore Public library!\n\nWe know you'll find a book here that you love!\n\n";
         return welcomeMessage;
     }
 
@@ -49,7 +49,7 @@ public class Messages {
     }
 
     public static String exitMessage() {
-        String exitMessage = "\nThank you for using the Bangalore Public Library!\n";
+        String exitMessage = "\nThank you for using the Bangalore Public library!\n";
         return exitMessage;
     }
 

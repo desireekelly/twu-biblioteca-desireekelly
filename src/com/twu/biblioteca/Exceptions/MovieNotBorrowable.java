@@ -1,4 +1,4 @@
-package com.twu.biblioteca.Exceptions;
+package com.twu.biblioteca.exceptions;
 
 /**
  * MovieNotBorrowable is responsible for handling exceptions for movies that are unavailable to borrow.

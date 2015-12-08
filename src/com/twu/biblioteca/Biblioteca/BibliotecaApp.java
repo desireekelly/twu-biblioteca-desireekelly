@@ -1,11 +1,11 @@
-package com.twu.biblioteca.Biblioteca;
+package com.twu.biblioteca.biblioteca;
 
-import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Library.LibraryImpl;
-import com.twu.biblioteca.Menu.*;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.library.LibraryImpl;
+import com.twu.biblioteca.menu.*;
 
 /**
- * BibliotecaApp is responsible for launching the Biblioteca Library System.
+ * BibliotecaApp is responsible for launching the biblioteca library System.
  *
  * @author Desiree Kelly
  * @version 1.0

@@ -1,7 +1,7 @@
-package com.twu.biblioteca.Book;
+package com.twu.biblioteca.book;
 
 /**
- * Book is responsible for holding all the information about a book.
+ * book is responsible for holding all the information about a book.
  *
  * @author Desiree Kelly
  * @version 1.0

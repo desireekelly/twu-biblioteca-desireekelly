@@ -1,11 +1,11 @@
-package com.twu.biblioteca.Book;
+package com.twu.biblioteca.book;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Tests for the Book class.
+ * Tests for the book class.
  *
  * @author Desiree Kelly
  * @version 1.0

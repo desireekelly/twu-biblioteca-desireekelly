@@ -1,18 +1,18 @@
-package com.twu.biblioteca.Library;
+package com.twu.biblioteca.library;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Customer.Customer;
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.customer.Customer;
+import com.twu.biblioteca.exceptions.BookNotBorrowable;
+import com.twu.biblioteca.exceptions.BookNotReturnable;
+import com.twu.biblioteca.exceptions.MovieNotBorrowable;
+import com.twu.biblioteca.movie.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Tests for the Library class.
+ * Tests for the library class.
  *
  * @author Desiree Kelly
  * @version 2.0
@@ -73,7 +73,7 @@ public class LibraryTest {
         try {
             library.returnBook(library.getAvailableBooks().get(0));
         } catch (BookNotReturnable e) {
-            String message = "Book is already returned";
+            String message = "book is already returned";
             assertEquals(message, e.getMessage());
             throw e;
         }
@@ -86,7 +86,7 @@ public class LibraryTest {
             library.checkoutBook(library.getBookList().get(0));
             library.checkoutBook(library.getBookList().get(0));
         } catch (BookNotBorrowable e) {
-            String message = "Book is not available";
+            String message = "book is not available";
             assertEquals(message, e.getMessage());
             throw e;
         }
@@ -137,7 +137,7 @@ public class LibraryTest {
             library.checkoutMovie(library.getMovieList().get(0));
             library.checkoutMovie(library.getMovieList().get(0));
         } catch (MovieNotBorrowable e) {
-            String message = "Movie is not available";
+            String message = "movie is not available";
             assertEquals(message, e.getMessage());
             throw e;
         }

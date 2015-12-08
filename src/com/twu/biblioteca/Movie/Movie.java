@@ -1,7 +1,7 @@
-package com.twu.biblioteca.Movie;
+package com.twu.biblioteca.movie;
 
 /**
- * Movie is responsible for holding all the information about a movie.
+ * movie is responsible for holding all the information about a movie.
  *
  * @author Desiree Kelly
  * @version 2.0

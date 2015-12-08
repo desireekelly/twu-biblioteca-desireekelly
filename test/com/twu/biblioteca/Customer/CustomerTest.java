@@ -1,12 +1,11 @@
-package com.twu.biblioteca.Customer;
+package com.twu.biblioteca.customer;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Tests for the Customer class.
+ * Tests for the customer class.
  *
  * @author Desiree Kelly
  * @version 2.0

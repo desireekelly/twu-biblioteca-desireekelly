@@ -1,10 +1,10 @@
-package com.twu.biblioteca.Menu;
+package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Exceptions.BookNotReturnable;
-import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Utilities.Messages;
-import com.twu.biblioteca.Utilities.Utilities;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.exceptions.BookNotReturnable;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.Utilities;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -26,7 +26,7 @@ public class ReturnMenuImpl implements ReturnMenu {
     private boolean exit;
 
     /**
-     * Construct a return menu with access to the Library, input streams and output streams.
+     * Construct a return menu with access to the library, input streams and output streams.
      */
     public ReturnMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;

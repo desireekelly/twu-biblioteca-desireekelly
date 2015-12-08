@@ -1,8 +1,8 @@
-package com.twu.biblioteca.Menu;
+package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Utilities.Messages;
-import com.twu.biblioteca.Utilities.Utilities;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.Utilities;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -25,7 +25,7 @@ public class MainMenu {
     private boolean exit;
 
     /**
-     * Construct a main menu with access to the Library, input streams, output streams, borrow menu and return menu.
+     * Construct a main menu with access to the library, input streams, output streams, borrow menu and return menu.
      */
     public MainMenu(Library library, InputStream inputStream, PrintStream outputStream, BorrowMenu borrowMenu, ReturnMenu returnMenu) {
         this.library = library;

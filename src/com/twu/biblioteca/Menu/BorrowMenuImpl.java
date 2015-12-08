@@ -1,10 +1,10 @@
-package com.twu.biblioteca.Menu;
+package com.twu.biblioteca.menu;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Exceptions.BookNotBorrowable;
-import com.twu.biblioteca.Library.Library;
-import com.twu.biblioteca.Utilities.Messages;
-import com.twu.biblioteca.Utilities.Utilities;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.exceptions.BookNotBorrowable;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.Utilities;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -26,7 +26,7 @@ public class BorrowMenuImpl implements BorrowMenu {
     private boolean exit;
 
     /**
-     * Construct a borrow menu with access to the Library, input streams and output streams.
+     * Construct a borrow menu with access to the library, input streams and output streams.
      */
     public BorrowMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
         this.library = library;

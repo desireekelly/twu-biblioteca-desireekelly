@@ -1,7 +1,7 @@
-package com.twu.biblioteca.Customer;
+package com.twu.biblioteca.customer;
 
 /**
- * Customer is responsible for holding all the information about a customer.
+ * customer is responsible for holding all the information about a customer.
  *
  * @author Desiree Kelly
  * @version 2.0

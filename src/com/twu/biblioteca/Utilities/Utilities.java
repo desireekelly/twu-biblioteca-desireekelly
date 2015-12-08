@@ -1,13 +1,12 @@
-package com.twu.biblioteca.Utilities;
+package com.twu.biblioteca.utilities;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Customer.Customer;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.movie.Movie;
 
 import java.util.List;
 
 /**
- * Utilities is responsible for formatting a list of books into columns.
+ * utilities is responsible for formatting a list of books into columns.
  *
  * @author Desiree Kelly
  * @version 1.0

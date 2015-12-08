@@ -1,4 +1,4 @@
-package com.twu.biblioteca.Exceptions;
+package com.twu.biblioteca.exceptions;
 
 /**
  * BookNotReturnable is responsible for handling exceptions for books that are unavailable to return.

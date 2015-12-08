@@ -1,12 +1,11 @@
-package com.twu.biblioteca.Movie;
+package com.twu.biblioteca.movie;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Tests for the Movie class.
+ * Tests for the movie class.
  *
  * @author Desiree Kelly
  * @version 2.0

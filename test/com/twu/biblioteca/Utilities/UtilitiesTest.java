@@ -1,7 +1,7 @@
-package com.twu.biblioteca.Utilities;
+package com.twu.biblioteca.utilities;
 
-import com.twu.biblioteca.Book.Book;
-import com.twu.biblioteca.Movie.Movie;
+import com.twu.biblioteca.book.Book;
+import com.twu.biblioteca.movie.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests for the Utilities class.
+ * Tests for the utilities class.
  *
  * @author Desiree Kelly
  * @version 1.0
