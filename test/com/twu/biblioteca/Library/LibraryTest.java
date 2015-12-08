@@ -72,24 +72,47 @@ public class LibraryTest {
 
     @Test
     public void testCheckoutBook() throws Exception {
-        library.checkoutBook(library.getBookList().get(0));
+        library.checkoutBook(library.getAvailableBooks().get(0));
+        assertEquals(BOOK_1, library.getBorrowedBooks().get(0));
     }
 
     @Test
     public void testReturnBook() throws Exception {
-        library.checkoutBook(library.getBookList().get(0));
-        library.returnBook(library.getBookList().get(0));
+        library.checkoutBook(library.getAvailableBooks().get(0));
+        assertEquals(BOOK_1, library.getBorrowedBooks().get(0));
+        library.returnBook(library.getBorrowedBooks().get(0));
+        assertEquals(BOOK_1, library.getAvailableBooks().get(0));
     }
 
     @Test(expected = BookNotReturnable.class)
     public void testExceptionThrownWhenBookAlreadyReturned() throws Exception {
-        library.returnBook(library.getBookList().get(0));
+        try
+        {
+            library.returnBook(library.getBookList().get(0));
+        }
+        catch(BookNotReturnable e)
+        {
+            String message = "Book is already returned";
+            assertEquals(message, e.getMessage());
+            throw e;
+        }
+        fail("BookNotReturnable Exception not thrown");
     }
 
     @Test(expected = BookNotBorrowable.class)
     public void testExceptionThrownWhenBookBorrowedTwice() throws Exception {
-        library.checkoutBook(library.getBookList().get(0));
-        library.checkoutBook(library.getBookList().get(0));
+        try
+        {
+            library.checkoutBook(library.getBookList().get(0));
+            library.checkoutBook(library.getBookList().get(0));
+        }
+        catch(BookNotBorrowable e)
+        {
+            String message = "Book is not available";
+            assertEquals(message, e.getMessage());
+            throw e;
+        }
+        fail("BookNotBorrowable Exception not thrown");
     }
 
     @Test
