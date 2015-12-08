@@ -8,7 +8,6 @@ import com.twu.biblioteca.Exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.Movie.Movie;
 
 import java.util.List;
-import java.util.TreeMap;
 
 /**
  * Library interface.
@@ -64,7 +63,4 @@ public interface Library {
     void checkoutMovie(Movie movie) throws MovieNotBorrowable;
 
     List<Customer> getCustomerList();
-
-    //TreeMap<String, String> getBooksCheckedOutBy();
-
 }
