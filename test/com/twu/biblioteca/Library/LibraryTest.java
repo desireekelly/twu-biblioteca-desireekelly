@@ -57,15 +57,14 @@ public class LibraryTest {
     @Test
     public void testCheckoutBook() throws Exception {
         library.checkoutBook(library.getAvailableBooks().get(0));
-        assertEquals(BOOK_1, library.getBorrowedBooks().get(0));
+        assertTrue(library.getBorrowedBooks().contains(BOOK_1));
     }
 
     @Test
     public void testReturnBook() throws Exception {
         library.checkoutBook(library.getAvailableBooks().get(0));
-        assertEquals(BOOK_1, library.getBorrowedBooks().get(0));
         library.returnBook(library.getBorrowedBooks().get(0));
-        assertEquals(BOOK_1, library.getAvailableBooks().get(0));
+        assertTrue(library.getAvailableBooks().contains(BOOK_1));
     }
 
     @Test(expected = BookNotReturnable.class)
