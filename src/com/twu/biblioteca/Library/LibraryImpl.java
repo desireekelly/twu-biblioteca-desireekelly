@@ -23,6 +23,7 @@ public class LibraryImpl implements Library {
     private List<Movie> movies = new ArrayList<Movie>();
     private Set<Movie> borrowedMovies = new HashSet<Movie>();
     private List<Customer> customers = new ArrayList<Customer>();
+    private TreeMap<String, String> booksCheckedOutBy = new TreeMap<String,String>();
 
     /**
      * Construct a library with a fixed set of books.
@@ -107,7 +108,15 @@ public class LibraryImpl implements Library {
         if (borrowedBooks.contains(book))
             throw new BookNotBorrowable("Book is not available");
         borrowedBooks.add(book);
+        booksCheckedOutBy.put("Customer 1", "Book 1");
     }
+
+    /*
+    @Override
+    public TreeMap<String, String> getBooksCheckedOutBy(){
+        return booksCheckedOutBy;
+    }
+    */
 
     /**
      * Return a checked out book.

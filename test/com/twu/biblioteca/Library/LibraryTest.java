@@ -132,4 +132,11 @@ public class LibraryTest {
         library.checkoutMovie(library.getMovieList().get(0));
         library.checkoutMovie(library.getMovieList().get(0));
     }
+
+    /*
+    @Test
+    public void testBooksCheckedOutBy() throws Exception{
+        assertEquals(library.getBooksCheckedOutBy(), "");
+    }
+    */
 }
