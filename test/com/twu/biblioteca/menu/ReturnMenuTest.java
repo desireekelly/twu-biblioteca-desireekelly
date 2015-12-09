@@ -7,6 +7,8 @@ import com.twu.biblioteca.exceptions.BookNotReturnable;
 import com.twu.biblioteca.exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.library.Library;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.MessagesImpl;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -35,8 +37,9 @@ public class ReturnMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
 
-        ReturnMenu returnMenu = new ReturnMenuImpl(library, inputStream, printStream);
+        ReturnMenu returnMenu = new ReturnMenuImpl(library, inputStream, printStream, messages);
 
         returnMenu.displayReturnMenu();
 
@@ -63,7 +66,8 @@ public class ReturnMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
-        ReturnMenu returnMenu = new ReturnMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        ReturnMenu returnMenu = new ReturnMenuImpl(library, inputStream, printStream, messages);
 
         returnMenu.displayReturnMenu();
 
@@ -94,7 +98,8 @@ public class ReturnMenuTest {
             }
 
         };
-        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream, messages);
 
         returnMenu.returnMenuOptions(1);
 
@@ -112,7 +117,8 @@ public class ReturnMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
-        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream, messages);
 
         returnMenu.returnMenuOptions(0);
 
@@ -128,7 +134,8 @@ public class ReturnMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
-        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        ReturnMenuImpl returnMenu = new ReturnMenuImpl(library, inputStream, printStream, messages);
 
         returnMenu.returnMenuOptions(5);
 

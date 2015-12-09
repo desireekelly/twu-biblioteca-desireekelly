@@ -7,6 +7,8 @@ import com.twu.biblioteca.exceptions.BookNotReturnable;
 import com.twu.biblioteca.exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.library.Library;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.MessagesImpl;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -50,6 +52,7 @@ public class MainMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu() {
             @Override
             public void displayBorrowMenu() {
@@ -62,7 +65,7 @@ public class MainMenuTest {
                 printStream.print("\n\nDisplay Return menu invoked\n\n");
             }
         };
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenu();
 
@@ -116,9 +119,10 @@ public class MainMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenu();
 
@@ -155,10 +159,11 @@ public class MainMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
 
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(1);
 
@@ -179,10 +184,11 @@ public class MainMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
         MockBorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
 
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(2);
 
@@ -206,10 +212,11 @@ public class MainMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
+        Messages messages = new MessagesImpl();
         MockBorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
 
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(2);
 
@@ -225,10 +232,11 @@ public class MainMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         MockReturnMenu returnMenu = new MockReturnMenu();
 
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(3);
 
@@ -252,10 +260,11 @@ public class MainMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         MockReturnMenu returnMenu = new MockReturnMenu();
 
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(3);
 
@@ -271,9 +280,10 @@ public class MainMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(4);
 
@@ -289,9 +299,10 @@ public class MainMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
         BorrowMenu borrowMenu = new MockBorrowMenu();
         ReturnMenu returnMenu = new MockReturnMenu();
-        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu);
+        MainMenu mainMenu = new MainMenu(library, inputStream, printStream, borrowMenu, returnMenu, messages);
 
         mainMenu.mainMenuOptions(5);
 

@@ -7,6 +7,8 @@ import com.twu.biblioteca.exceptions.BookNotReturnable;
 import com.twu.biblioteca.exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.library.Library;
 import com.twu.biblioteca.movie.Movie;
+import com.twu.biblioteca.utilities.Messages;
+import com.twu.biblioteca.utilities.MessagesImpl;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -35,8 +37,9 @@ public class BorrowMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
+        Messages messages = new MessagesImpl();
 
-        BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream, messages);
 
         borrowMenu.displayBorrowMenu();
 
@@ -63,7 +66,8 @@ public class BorrowMenuTest {
                 return Collections.singletonList(new Book("Unit Testing 101", "Uncle Bob", 1947));
             }
         };
-        BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        BorrowMenu borrowMenu = new BorrowMenuImpl(library, inputStream, printStream, messages);
 
         borrowMenu.displayBorrowMenu();
 
@@ -94,7 +98,8 @@ public class BorrowMenuTest {
             }
 
         };
-        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream, messages);
 
         borrowMenu.borrowMenuOptions(1);
 
@@ -112,7 +117,8 @@ public class BorrowMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
-        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream, messages);
 
         borrowMenu.borrowMenuOptions(0);
 
@@ -128,7 +134,8 @@ public class BorrowMenuTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(baos);
         Library library = new MockLibrary();
-        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream);
+        Messages messages = new MessagesImpl();
+        BorrowMenuImpl borrowMenu = new BorrowMenuImpl(library, inputStream, printStream, messages);
 
         borrowMenu.borrowMenuOptions(5);
 

@@ -22,17 +22,19 @@ public class MainMenu {
     private Library library;
     private BorrowMenu borrowMenu;
     private ReturnMenu returnMenu;
+    private Messages messages;
     private boolean exit;
 
     /**
      * Construct a main menu with access to the library, input streams, output streams, borrow menu and return menu.
      */
-    public MainMenu(Library library, InputStream inputStream, PrintStream outputStream, BorrowMenu borrowMenu, ReturnMenu returnMenu) {
+    public MainMenu(Library library, InputStream inputStream, PrintStream outputStream, BorrowMenu borrowMenu, ReturnMenu returnMenu, Messages messages) {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
         this.borrowMenu = borrowMenu;
         this.returnMenu = returnMenu;
+        this.messages = messages;
         exit = false;
     }
 
@@ -41,19 +43,19 @@ public class MainMenu {
      */
     public void mainMenu() {
 
-        outputStream.print(Messages.welcomeMessage());
+        outputStream.print(messages.welcomeMessage());
 
         do {
             try {
-                outputStream.print(Messages.mainMenuMessage());
-                outputStream.print(Messages.optionMessage());
+                outputStream.print(messages.mainMenuMessage());
+                outputStream.print(messages.optionMessage());
                 if (input.hasNextLine()) {
                     mainMenuOptions(input.nextInt());
                 } else {
                     exit = true;
                 }
             } catch (InputMismatchException e) {
-                outputStream.print(Messages.incorrectInputMessage());
+                outputStream.print(messages.incorrectInputMessage());
                 input.nextLine();
             }
 
@@ -69,29 +71,29 @@ public class MainMenu {
     /* package */ void mainMenuOptions(int option) {
         switch (option) {
             case 1:
-                outputStream.print(Messages.bookListingMessage());
+                outputStream.print(messages.bookListingMessage());
                 outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
                 break;
             case 2:
                 if (library.getAvailableBooks().isEmpty()) {
-                    outputStream.print(Messages.incorrectBorrowMessage());
+                    outputStream.print(messages.incorrectBorrowMessage());
                     break;
                 }
                 borrowMenu.displayBorrowMenu();
                 break;
             case 3:
                 if (library.getBorrowedBooks().isEmpty()) {
-                    outputStream.print(Messages.incorrectReturnMessage());
+                    outputStream.print(messages.incorrectReturnMessage());
                     break;
                 }
                 returnMenu.displayReturnMenu();
                 break;
             case 4:
-                outputStream.print(Messages.exitMessage());
+                outputStream.print(messages.exitMessage());
                 exit = true;
                 break;
             default:
-                outputStream.print(Messages.incorrectInputMessage());
+                outputStream.print(messages.incorrectInputMessage());
                 break;
         }
     }

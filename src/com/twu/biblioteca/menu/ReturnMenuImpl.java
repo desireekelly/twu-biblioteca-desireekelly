@@ -23,15 +23,17 @@ public class ReturnMenuImpl implements ReturnMenu {
     private Library library;
     private Scanner input;
     private PrintStream outputStream;
+    private Messages messages;
     private boolean exit;
 
     /**
      * Construct a return menu with access to the library, input streams and output streams.
      */
-    public ReturnMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
+    public ReturnMenuImpl(Library library, InputStream inputStream, PrintStream outputStream, Messages messages) {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
+        this.messages = messages;
         exit = false;
     }
 
@@ -40,10 +42,10 @@ public class ReturnMenuImpl implements ReturnMenu {
      */
     @Override
     public void displayReturnMenu() {
-        outputStream.print(Messages.returnMessage());
-        outputStream.printf(Messages.bookListingMessage());
+        outputStream.print(messages.returnMessage());
+        outputStream.printf(messages.bookListingMessage());
         outputStream.println(Utilities.displayFormattedBookList(library.getBorrowedBooks()));
-        outputStream.print(Messages.optionMessage());
+        outputStream.print(messages.optionMessage());
         do {
             try {
                 if (input.hasNextLine()) {
@@ -52,7 +54,7 @@ public class ReturnMenuImpl implements ReturnMenu {
                     exit = true;
                 }
             } catch (InputMismatchException e) {
-                outputStream.print(Messages.incorrectInputMessage());
+                outputStream.print(messages.incorrectInputMessage());
                 input.nextLine();
                 exit = true;
             }
@@ -74,13 +76,13 @@ public class ReturnMenuImpl implements ReturnMenu {
             try {
                 Book bookToReturn = library.getBorrowedBooks().get(option - 1);
                 library.returnBook(bookToReturn);
-                outputStream.println(Messages.returnThankYouMessage() + bookToReturn.getTitle().toString() + "!\n");
+                outputStream.println(messages.returnThankYouMessage() + bookToReturn.getTitle().toString() + "!\n");
                 exit = true;
             } catch (BookNotReturnable e) {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            outputStream.print(Messages.incorrectInputMessage());
+            outputStream.print(messages.incorrectInputMessage());
             exit = true;
         }
     }

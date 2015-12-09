@@ -23,15 +23,17 @@ public class BorrowMenuImpl implements BorrowMenu {
     private Scanner input;
     private PrintStream outputStream;
     private Library library;
+    private Messages messages;
     private boolean exit;
 
     /**
      * Construct a borrow menu with access to the library, input streams and output streams.
      */
-    public BorrowMenuImpl(Library library, InputStream inputStream, PrintStream outputStream) {
+    public BorrowMenuImpl(Library library, InputStream inputStream, PrintStream outputStream, Messages messages) {
         this.library = library;
         this.input = new Scanner(inputStream);
         this.outputStream = outputStream;
+        this.messages = messages;
         exit = false;
     }
 
@@ -40,10 +42,10 @@ public class BorrowMenuImpl implements BorrowMenu {
      */
     @Override
     public void displayBorrowMenu() {
-        outputStream.print(Messages.borrowMessage());
-        outputStream.print(Messages.bookListingMessage());
+        outputStream.print(messages.borrowMessage());
+        outputStream.print(messages.bookListingMessage());
         outputStream.println(Utilities.displayFormattedBookList(library.getAvailableBooks()));
-        outputStream.print(Messages.optionMessage());
+        outputStream.print(messages.optionMessage());
         do {
             try {
                 if (input.hasNextLine()) {
@@ -52,7 +54,7 @@ public class BorrowMenuImpl implements BorrowMenu {
                     exit = true;
                 }
             } catch (InputMismatchException e) {
-                outputStream.print(Messages.incorrectInputMessage());
+                outputStream.print(messages.incorrectInputMessage());
                 input.nextLine();
                 exit = true;
             }
@@ -74,13 +76,13 @@ public class BorrowMenuImpl implements BorrowMenu {
             try {
                 Book bookToBorrow = library.getAvailableBooks().get(option - 1);
                 library.checkoutBook(bookToBorrow);
-                outputStream.println(Messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
+                outputStream.println(messages.borrowThankYouMessage() + bookToBorrow.getTitle().toString() + "!\n");
                 exit = true;
             } catch (BookNotBorrowable e) {
                 outputStream.println("\n" + e.getMessage() + "\n");
             }
         } else {
-            outputStream.print(Messages.incorrectInputMessage());
+            outputStream.print(messages.incorrectInputMessage());
             exit = true;
         }
     }

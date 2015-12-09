@@ -1,75 +1,34 @@
 package com.twu.biblioteca.utilities;
 
 /**
+ * Messages interface.
  * Messages is responsible for holding all of the messages to display.
  *
  * @author Desiree Kelly
  * @version 1.0
  */
-public class Messages {
+public interface Messages {
+    String welcomeMessage();
 
-    public static String welcomeMessage() {
-        String welcomeMessage = "Welcome to the Bangalore Public library!\n\nWe know you'll find a book here that you love!\n\n";
-        return welcomeMessage;
-    }
+    String mainMenuMessage();
 
-    public static String mainMenuMessage() {
-        String mainMenuMessage = "Enter one of the following options:\n" +
-                "1 Display the list of available books to borrow\n" +
-                "2 Borrow a book\n" +
-                "3 Return a book\n" +
-                "4 Exit\n";
-        return mainMenuMessage;
-    }
+    String optionMessage();
 
-    public static String optionMessage() {
-        String optionMessage = "Enter your option:";
-        return optionMessage;
-    }
+    String bookListingMessage();
 
-    public static String bookListingMessage() {
-        String availableBooksMessage = "\nAvailable Books:\n\n";
-        String formattedColumnTitle = String.format("%-15s %-15s %-15s %-15s\n", "ID:", "Title:", "Author:", "Year Published:");
-        return availableBooksMessage + formattedColumnTitle;
-    }
+    String incorrectInputMessage();
 
-    public static String incorrectInputMessage() {
-        String incorrectInputMessage = "\nIncorrect option, please try again.\n\n";
-        return incorrectInputMessage;
-    }
+    String incorrectReturnMessage();
 
-    public static String incorrectReturnMessage() {
-        String incorrectReturnMessage = "\nSorry, there are no available books to return\n\n";
-        return incorrectReturnMessage;
-    }
+    String incorrectBorrowMessage();
 
-    public static String incorrectBorrowMessage() {
-        String incorrectBorrowMessage = "\nSorry, there are no available books to borrow\n\n";
-        return incorrectBorrowMessage;
-    }
+    String exitMessage();
 
-    public static String exitMessage() {
-        String exitMessage = "\nThank you for using the Bangalore Public library!\n";
-        return exitMessage;
-    }
+    String borrowMessage();
 
-    public static String borrowMessage() {
-        String borrowMessage = "\nSelect a book to borrow by entering the ID number or enter 0 to go back to the main menu:\n";
-        return borrowMessage;
-    }
+    String borrowThankYouMessage();
 
-    public static String borrowThankYouMessage() {
-        String borrowThankYouMessage = "\nThank you! Enjoy reading ";
-        return borrowThankYouMessage;
-    }
+    String returnMessage();
 
-    public static String returnMessage() {
-        String returnMessage = "\nSelect a book to return by entering the ID number or enter 0 to go back to the main menu:\n";
-        return returnMessage;
-    }
-
-    public static String returnThankYouMessage() {
-        String returnThankYouMessage = "\nThank you for returning ";
-        return returnThankYouMessage;
-    }
+    String returnThankYouMessage();
 }
