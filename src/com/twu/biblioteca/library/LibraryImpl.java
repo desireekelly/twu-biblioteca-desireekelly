@@ -40,14 +40,14 @@ public class LibraryImpl implements Library {
         books.add(new Book("C++ 101", "Joyce Merry", 2001));
     }
 
-    private void createMovieList(){
+    private void createMovieList() {
         movies.add(new Movie("The Matrix", 1999, "The Wachowski Brothers", "10"));
         movies.add(new Movie("Inception", 2010, "Christopher Nolan", "8"));
         movies.add(new Movie("Divergent", 2014, "Neil Burger", "Unrated"));
         movies.add(new Movie("The Bourne Identity", 2002, "Doug Liman", "10"));
     }
 
-    private void createCustomerList(){
+    private void createCustomerList() {
         customers.add(new Customer("Joe Bloggs", "joebloggs@joebloggs.com", "0400 000 000", "123-4566", "f8kf93jd"));
         customers.add(new Customer("Jane Smith", "janesmith@janesmith.com", "0400 123 888", "123-4567", "5jgfdkl5"));
         customers.add(new Customer("Bob Smith", "bobsmith@bobsmith.com", "0412 454 565", "123-4568", "4jg84jf8"));
@@ -62,9 +62,9 @@ public class LibraryImpl implements Library {
     @Override
     public List<Book> getAvailableBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
-        for (Book b : books) {
-            if (!borrowedBooks.contains(b)) {
-                results.add(b);
+        for (Book book : books) {
+            if (!borrowedBooks.contains(book)) {
+                results.add(book);
             }
         }
         return results;
@@ -78,9 +78,9 @@ public class LibraryImpl implements Library {
     @Override
     public List<Book> getBorrowedBooks() {
         List<Book> results = new ArrayList<Book>(books.size());
-        for (Book b : books) {
-            if (borrowedBooks.contains(b)) {
-                results.add(b);
+        for (Book book : books) {
+            if (borrowedBooks.contains(book)) {
+                results.add(book);
             }
         }
         return results;
@@ -125,9 +125,9 @@ public class LibraryImpl implements Library {
     @Override
     public List<Movie> getAvailableMovies() {
         List<Movie> results = new ArrayList<Movie>(movies.size());
-        for (Movie m : movies) {
-            if (!borrowedMovies.contains(m)) {
-                results.add(m);
+        for (Movie movie : movies) {
+            if (!borrowedMovies.contains(movie)) {
+                results.add(movie);
             }
         }
         return results;
@@ -136,9 +136,9 @@ public class LibraryImpl implements Library {
     @Override
     public List<Movie> getBorrowedMovies() {
         List<Movie> results = new ArrayList<Movie>(movies.size());
-        for (Movie m : movies) {
-            if (borrowedMovies.contains(m)) {
-                results.add(m);
+        for (Movie movie : movies) {
+            if (borrowedMovies.contains(movie)) {
+                results.add(movie);
             }
         }
         return results;
@@ -150,7 +150,7 @@ public class LibraryImpl implements Library {
     }
 
     @Override
-    public void checkoutMovie(Movie movie) throws MovieNotBorrowable{
+    public void checkoutMovie(Movie movie) throws MovieNotBorrowable {
         if (borrowedMovies.contains(movie))
             throw new MovieNotBorrowable("movie is not available");
         borrowedMovies.add(movie);
