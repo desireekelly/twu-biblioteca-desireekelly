@@ -8,7 +8,7 @@ package com.twu.biblioteca.exceptions;
  */
 public class MovieNotBorrowable extends Exception {
 
-    public MovieNotBorrowable(String msg){
+    public MovieNotBorrowable(String msg) {
         super(msg);
     }
 }

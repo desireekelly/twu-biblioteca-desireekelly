@@ -46,7 +46,7 @@ public class BorrowMenuImpl implements BorrowMenu {
         outputStream.print(Messages.optionMessage());
         do {
             try {
-                if(input.hasNextLine()){
+                if (input.hasNextLine()) {
                     borrowMenuOptions(input.nextInt(10));
                 } else {
                     exit = true;

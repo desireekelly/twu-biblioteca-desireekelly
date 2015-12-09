@@ -29,7 +29,7 @@ public class Utilities {
         return formattedBookList;
     }
 
-    public static String displayFormattedMovieList(List<Movie> movieList){
+    public static String displayFormattedMovieList(List<Movie> movieList) {
         String formattedMovieList = "";
         int index = 0;
 

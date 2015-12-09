@@ -46,9 +46,9 @@ public class ReturnMenuImpl implements ReturnMenu {
         outputStream.print(Messages.optionMessage());
         do {
             try {
-                if(input.hasNextLine()) {
+                if (input.hasNextLine()) {
                     returnMenuOptions(input.nextInt(10));
-                }else {
+                } else {
                     exit = true;
                 }
             } catch (InputMismatchException e) {
@@ -56,7 +56,7 @@ public class ReturnMenuImpl implements ReturnMenu {
                 input.nextLine();
                 exit = true;
             }
-        }while(!exit);
+        } while (!exit);
     }
 
     /**
