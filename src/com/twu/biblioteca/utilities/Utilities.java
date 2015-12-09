@@ -22,9 +22,9 @@ public class Utilities {
         String formattedBookList = "";
         int index = 0;
 
-        for (Book b : bookList) {
+        for (Book book : bookList) {
             index++;
-            formattedBookList += String.format("%-15d %-15s %-15s %-15d\n", index, b.getTitle(), b.getAuthor(), b.getYearPublished());
+            formattedBookList += String.format("%-15d %-15s %-15s %-15d\n", index, book.getTitle(), book.getAuthor(), book.getYearPublished());
         }
         return formattedBookList;
     }
@@ -33,9 +33,9 @@ public class Utilities {
         String formattedMovieList = "";
         int index = 0;
 
-        for (Movie m : movieList) {
+        for (Movie movie : movieList) {
             index++;
-            formattedMovieList += String.format("%-20d %-20s %-20d %-35s %-20s\n", index, m.getName(), m.getYear(), m.getDirector(), m.getMovieRating());
+            formattedMovieList += String.format("%-20d %-20s %-20d %-35s %-20s\n", index, movie.getName(), movie.getYear(), movie.getDirector(), movie.getMovieRating());
         }
         return formattedMovieList;
     }
