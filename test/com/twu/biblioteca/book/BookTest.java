@@ -18,22 +18,22 @@ public class BookTest {
 
     @Test
     public void testGetTitle() throws Exception {
-        assertEquals(BOOK_1.getTitle(), "Java 101");
+        assertEquals("Java 101", BOOK_1.getTitle());
     }
 
     @Test
     public void testGetAuthor() throws Exception {
-        assertEquals(BOOK_1.getAuthor(), "Joe Bloggs");
+        assertEquals("Joe Bloggs", BOOK_1.getAuthor());
     }
 
     @Test
     public void testGetYearPublished() throws Exception {
-        assertEquals(BOOK_1.getYearPublished(), 1990);
+        assertEquals(1990, BOOK_1.getYearPublished());
     }
 
     @Test
     public void testToString() throws Exception {
-        assertEquals(BOOK_1.toString(), "Java 101, Joe Bloggs, 1990");
+        assertEquals("Java 101, Joe Bloggs, 1990", BOOK_1.toString());
     }
 
     @Test

@@ -18,27 +18,27 @@ public class MovieTest {
 
     @Test
     public void testGetName() throws Exception {
-        assertEquals(MOVIE_1.getName(), "The Matrix");
+        assertEquals("The Matrix", MOVIE_1.getName());
     }
 
     @Test
     public void testGetYear() throws Exception {
-        assertEquals(MOVIE_1.getYear(), 1999);
+        assertEquals(1999, MOVIE_1.getYear());
     }
 
     @Test
     public void testGetDirector() throws Exception {
-        assertEquals(MOVIE_1.getDirector(), "The Wachowski Brothers");
+        assertEquals("The Wachowski Brothers", MOVIE_1.getDirector());
     }
 
     @Test
     public void testGetMovieRating() throws Exception {
-        assertEquals(MOVIE_1.getMovieRating(), "10");
+        assertEquals("10", MOVIE_1.getMovieRating());
     }
 
     @Test
     public void testToString() throws Exception {
-        assertEquals(MOVIE_1.toString(), "The Matrix, 1999, The Wachowski Brothers, 10");
+        assertEquals("The Matrix, 1999, The Wachowski Brothers, 10", MOVIE_1.toString());
     }
 
     @Test

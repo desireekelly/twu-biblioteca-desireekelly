@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  * Tests for the utilities class.
  *
  * @author Desiree Kelly
- * @version 1.0
+ * @version 2.0
  * @see Utilities
  */
 public class UtilitiesTest {

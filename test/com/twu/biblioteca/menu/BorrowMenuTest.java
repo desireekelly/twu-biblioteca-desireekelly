@@ -7,7 +7,6 @@ import com.twu.biblioteca.exceptions.BookNotReturnable;
 import com.twu.biblioteca.exceptions.MovieNotBorrowable;
 import com.twu.biblioteca.library.Library;
 import com.twu.biblioteca.movie.Movie;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -28,11 +27,6 @@ import static org.junit.Assert.assertEquals;
  * @see BorrowMenu
  */
 public class BorrowMenuTest {
-
-    @Before
-    public void setUp() throws Exception {
-
-    }
 
     @Test
     public void testDisplayBorrowMenu() throws Exception {
@@ -177,12 +171,12 @@ public class BorrowMenuTest {
         }
 
         @Override
-        public List<Movie> getMovieList(){
+        public List<Movie> getMovieList() {
             return Collections.emptyList();
         }
 
         @Override
-        public List<Movie> getAvailableMovies(){
+        public List<Movie> getAvailableMovies() {
             return Collections.emptyList();
         }
 
@@ -192,7 +186,7 @@ public class BorrowMenuTest {
         }
 
         @Override
-        public List<Customer> getCustomerList(){
+        public List<Customer> getCustomerList() {
             return Collections.emptyList();
         }
     }

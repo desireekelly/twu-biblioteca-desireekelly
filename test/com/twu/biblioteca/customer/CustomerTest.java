@@ -18,32 +18,32 @@ public class CustomerTest {
 
     @Test
     public void testGetName() throws Exception {
-        assertEquals(CUSTOMER_1.getName(), "Joe Bloggs");
+        assertEquals("Joe Bloggs", CUSTOMER_1.getName());
     }
 
     @Test
     public void testGetEmailAddress() throws Exception {
-        assertEquals(CUSTOMER_1.getEmailAddress(), "joebloggs@joebloggs.com");
+        assertEquals("joebloggs@joebloggs.com", CUSTOMER_1.getEmailAddress());
     }
 
     @Test
     public void testGetPhoneNumber() throws Exception {
-        assertEquals(CUSTOMER_1.getPhoneNumber(), "0400 000 000");
+        assertEquals("0400 000 000", CUSTOMER_1.getPhoneNumber());
     }
 
     @Test
     public void testGetLibraryNumber() throws Exception {
-        assertEquals(CUSTOMER_1.getLibraryNumber(), "123-4567");
+        assertEquals("123-4567", CUSTOMER_1.getLibraryNumber());
     }
 
     @Test
     public void testGetPassword() throws Exception {
-        assertEquals(CUSTOMER_1.getPassword(), "f8kf93jd");
+        assertEquals("f8kf93jd", CUSTOMER_1.getPassword());
     }
 
     @Test
     public void testToString() throws Exception {
-        assertEquals(CUSTOMER_1.toString(), "Joe Bloggs, joebloggs@joebloggs.com, 0400 000 000");
+        assertEquals("Joe Bloggs, joebloggs@joebloggs.com, 0400 000 000", CUSTOMER_1.toString());
     }
 
     @Test
