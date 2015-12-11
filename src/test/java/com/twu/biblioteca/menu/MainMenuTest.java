@@ -10,6 +10,7 @@ import com.twu.biblioteca.movie.Movie;
 import com.twu.biblioteca.utilities.Messages;
 import com.twu.biblioteca.utilities.MessagesImpl;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
